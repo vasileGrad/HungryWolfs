@@ -3,9 +3,9 @@ package com.example.hungrywolfs
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-
-private const val SPLASH_TIME: Long = 1500
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -13,10 +13,11 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        Handler().postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
+
+        lifecycleScope.launch {
+            delay(1500)
             startActivity(intent)
-            finish()
-        }, SPLASH_TIME)
+        }
     }
 }

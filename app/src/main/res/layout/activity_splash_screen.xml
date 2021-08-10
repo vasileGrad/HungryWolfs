@@ -10,18 +10,18 @@
 
     <ImageView
         android:id="@+id/splash_screen_title"
-        android:layout_width="@dimen/splash_title_size"
+        android:layout_width="0dp"
         android:layout_height="@dimen/splash_title_size"
         android:layout_marginStart="@dimen/splash_title_margin"
-        android:layout_marginTop="@dimen/splash_title_margin"
         android:src="@drawable/ic_splash_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
 
     <ImageView
         android:id="@+id/splash_screen_wolf"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/splash_wolf_height"
+        android:layout_height="wrap_content"
         android:src="@drawable/ic_splash_wolf"
         app:layout_constraintBottom_toBottomOf="parent" />
 
