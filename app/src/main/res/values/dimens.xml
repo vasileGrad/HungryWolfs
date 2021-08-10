@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="splash_title_size">200dp</dimen>
+    <dimen name="splash_title_margin">32dp</dimen>
+    <dimen name="splash_wolf_height">380dp</dimen>
+</resources>
