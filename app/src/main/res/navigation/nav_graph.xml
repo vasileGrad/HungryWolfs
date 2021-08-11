@@ -10,12 +10,6 @@
         android:name="com.example.hungrywolfs.fragments.HomeFragment"
         android:label="@string/home_title"
         tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_homeFragment_to_favoritesFragment"
-            app:destination="@id/favoritesFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
