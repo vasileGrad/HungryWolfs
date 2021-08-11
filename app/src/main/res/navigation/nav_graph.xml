@@ -9,8 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.hungrywolfs.fragments.HomeFragment"
         android:label="@string/home_title"
-        tools:layout="@layout/fragment_home">
-    </fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.example.hungrywolfs.fragments.FavoritesFragment"
