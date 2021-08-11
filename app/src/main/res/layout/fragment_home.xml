@@ -1,26 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".HomeFragment">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fragments.ProfileFragment">
 
-    <data>
-
-        <variable
-            name="startFragment"
-            type="com.example.hungrywolfs.fragments.HomeFragment" />
-    </data>
-
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/home_id"
-            android:layout_width="wrap_content"
+            android:id="@+id/home_text"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/home_title" />
-    </RelativeLayout>
+            android:layout_marginTop="@dimen/margin_top"
+            android:layout_marginStart="@dimen/margin_left"
+            android:text="@string/home_title"
+            android:textSize="@dimen/home_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.5" />
 
-</layout>
+        <ImageButton
+            android:id="@+id/search_button"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/margin_top"
+            android:layout_marginStart="@dimen/margin_left"
+            android:layout_marginTop="@dimen/margin_top"
+            android:text="@string/search"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_text"
+            app:layout_constraintWidth_percent="0.7"
+            android:src="@drawable/ic_search_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
