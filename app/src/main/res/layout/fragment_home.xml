@@ -34,6 +34,18 @@
             app:layout_constraintTop_toBottomOf="@+id/home_text"
             app:layout_constraintWidth_percent="0.7" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_button" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
