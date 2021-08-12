@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import com.example.hungrywolfs.CategoryAdapter
 import com.example.hungrywolfs.databinding.FragmentHomeBinding
+import com.example.hungrywolfs.model.OrderViewModel
 
 class HomeFragment : Fragment() {
 
+    private val viewModel: OrderViewModel by activityViewModels()
     private var binding: FragmentHomeBinding? = null
 
     override fun onCreateView(
@@ -23,6 +26,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.recyclerView?.adapter = CategoryAdapter()
+        binding?.recyclerView?.adapter = CategoryAdapter(viewModel)
     }
 }
