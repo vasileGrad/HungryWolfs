@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.hungrywolfs.model.OrderViewModel
 import com.example.hungrywolfs.network.CategoriesApi
 import kotlinx.coroutines.launch
@@ -46,8 +48,15 @@ class MealAdapter(private val viewModel: OrderViewModel) :
 
     override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
         val mealName = viewModel.mealInfo.value?.meals?.get(position)?.strMeal
-        val mealImage = viewModel.mealInfo.value?.meals?.get(position)?.strMealThumb
+        val imageUrl = viewModel.mealInfo.value?.meals?.get(position)?.strMealThumb
         holder.mealName.text = mealName
+        imageUrl?.let {
+            val imgUri = imageUrl.toUri().buildUpon().scheme("https").build()
+            holder.mealImage.load(imgUri) {
+                placeholder(R.drawable.loading_animation)
+                error(R.drawable.ic_broken_image)
+            }
+        }
     }
 
     override fun getItemCount() = viewModel.mealInfo.value!!.meals.size
