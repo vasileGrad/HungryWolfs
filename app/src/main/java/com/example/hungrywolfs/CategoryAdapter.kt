@@ -19,9 +19,9 @@ class CategoryAdapter(private val viewModel: OrderViewModel) :
         runBlocking {
             val job = launch {
                 try {
-                    viewModel.setMealInfo(CategoriesApi.retrofitService.getMealCategories())
-                    Log.d("DEBUG CATEGORY API",
-                        "Success API retrieve " + "\n${viewModel.mealInfo.value?.categories}")
+                    viewModel.setFoodInfo(CategoriesApi.retrofitService.getFoodCategories())
+                    Log.d("CATEGORY API",
+                        "Success API retrieve " + "\n${viewModel.foodInfo.value?.categories}")
                 } catch (e: Exception) {
                     Log.d("DEBUG", "API retrieve error: $e")
                 }
@@ -43,13 +43,14 @@ class CategoryAdapter(private val viewModel: OrderViewModel) :
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        val item = viewModel.mealInfo.value?.categories?.get(position)?.strCategory
-        holder.button.text = item
+        val categoryId = viewModel.foodInfo.value?.categories?.get(position)?.idCategory
+        val categoryName = viewModel.foodInfo.value?.categories?.get(position)?.strCategory
+        holder.button.text = categoryName
         holder.button.setOnClickListener {
             val context = holder.view.context
-            Log.i("CATEGORY: ", item.toString())
+            Log.i("CATEGORY: ", categoryId.toString())
         }
     }
 
-    override fun getItemCount(): Int = viewModel.mealInfo.value!!.categories.size
+    override fun getItemCount(): Int = viewModel.foodInfo.value!!.categories.size
 }

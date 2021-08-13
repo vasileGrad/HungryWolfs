@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="fragments.ProfileFragment">
+    tools:context="fragments.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,36 +14,52 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_left"
             android:layout_marginTop="@dimen/margin_top"
+            android:layout_marginEnd="150dp"
+            android:gravity="start"
             android:text="@string/home_title"
+            android:textColor="@color/black"
             android:textSize="@dimen/home_text_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.5" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/search_button"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/margin_top"
-            android:layout_marginStart="@dimen/margin_left"
-            android:layout_marginTop="@dimen/margin_top"
-            android:src="@drawable/ic_search_button"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="100dp"
+            android:background="@drawable/ic_search_button"
+            android:contentDescription="@string/search"
             android:text="@string/search"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/home_text"
-            app:layout_constraintWidth_percent="0.7" />
+            app:layout_constraintStart_toStartOf="@+id/home_text"
+            app:layout_constraintTop_toBottomOf="@+id/home_text" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+            android:id="@+id/recycler_view_categories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:orientation="horizontal"
-            android:padding="16dp"
+            android:padding="@dimen/padding_recycler_view"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/search_button" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_meals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_recycler_view"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_categories" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+</layout>

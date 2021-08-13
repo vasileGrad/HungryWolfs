@@ -6,7 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hungrywolfs.network.CategoriesApi
-import com.example.hungrywolfs.network.MealCategories
+import com.example.hungrywolfs.network.FoodCategories
+import com.example.hungrywolfs.network.Meals
 import kotlinx.coroutines.launch
 
 enum class CategoriesApiStatus { LOADING, ERROR, DONE }
@@ -15,14 +16,21 @@ class OrderViewModel : ViewModel() {
     private val _status = MutableLiveData<CategoriesApiStatus>()
     val status: LiveData<CategoriesApiStatus> = _status
 
-    private val _mealInfo = MutableLiveData<MealCategories>()
-    val mealInfo: LiveData<MealCategories> = _mealInfo
+    private val _foodInfo = MutableLiveData<FoodCategories>()
+    val foodInfo: LiveData<FoodCategories> = _foodInfo
+
+    private val _mealInfo = MutableLiveData<Meals>()
+    val mealInfo: LiveData<Meals> = _mealInfo
 
     init {
         getCategories()
     }
 
-    fun setMealInfo(mealInfo: MealCategories) {
+    fun setFoodInfo(foodInfo: FoodCategories) {
+        _foodInfo.value = foodInfo
+    }
+
+    fun setMealInfo(mealInfo: Meals) {
         _mealInfo.value = mealInfo
     }
 
@@ -30,7 +38,7 @@ class OrderViewModel : ViewModel() {
         viewModelScope.launch {
             _status.value = CategoriesApiStatus.LOADING
             try {
-                val listResult = CategoriesApi.retrofitService.getMealCategories()
+                val listResult = CategoriesApi.retrofitService.getFoodCategories()
                 Log.d("OrderViewModel: ", "Categories:")
                 _status.value = CategoriesApiStatus.DONE
             } catch (e: Exception) {
