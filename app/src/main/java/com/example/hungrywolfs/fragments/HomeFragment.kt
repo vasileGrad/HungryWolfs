@@ -6,28 +6,37 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import com.example.hungrywolfs.CategoryAdapter
-import com.example.hungrywolfs.MealAdapter
+import com.example.hungrywolfs.adapters.CategoryAdapter
+import com.example.hungrywolfs.adapters.MealAdapter
 import com.example.hungrywolfs.databinding.FragmentHomeBinding
-import com.example.hungrywolfs.model.OrderViewModel
+import com.example.hungrywolfs.model.AppViewModel
 
 class HomeFragment : Fragment() {
 
-    private val viewModel: OrderViewModel by activityViewModels()
-    private var binding: FragmentHomeBinding? = null
+    private val viewModel: AppViewModel by activityViewModels()
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        val fragmentBinding = FragmentHomeBinding.inflate(inflater, container, false)
-        binding = fragmentBinding
-        return fragmentBinding.root
+        binding = FragmentHomeBinding.inflate(inflater)
+        binding.homeFragment = this
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding?.recyclerViewCategories?.adapter = CategoryAdapter(viewModel)
-        binding?.recyclerViewMeals?.adapter = MealAdapter(viewModel)
+
+        val categoryAdapter = CategoryAdapter()
+        val mealAdapter = MealAdapter()
+
+        binding.recyclerViewCategories.adapter = categoryAdapter
+        binding.recyclerViewMeals.adapter = mealAdapter
+
+        viewModel.info.observe(viewLifecycleOwner) { categoryAdapter.setCategories(it.categories) }
+        viewModel.mealInfo.observe(viewLifecycleOwner) { mealAdapter.setMeals(it.meals) }
+        categoryAdapter.selected.observe(viewLifecycleOwner) { viewModel.getSelectedMeals(it) }
     }
 }

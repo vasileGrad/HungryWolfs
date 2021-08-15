@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="@dimen/x_large_300"
     android:layout_height="wrap_content"
     android:layout_marginEnd="@dimen/normal_150">
@@ -51,7 +52,7 @@
             android:gravity="center|top"
             android:maxLines="3"
             android:textColor="@color/black"
-            android:textSize="@dimen/normal_125_text"
+            android:textSize="@dimen/normal_150_text"
             tools:text="@string/meal_name" />
 
     </LinearLayout>

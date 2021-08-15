@@ -1,12 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin_top">48dp</dimen>
-    <dimen name="margin_left">40dp</dimen>
-    <dimen name="home_text_size">28sp</dimen>
-    <dimen name="corner_radius_text">30dp</dimen>
-    <dimen name="corner_radius_image">50dp</dimen>
-    <dimen name="meal_size">22sp</dimen>
-    <dimen name="meal_padding">24dp</dimen>
-    <dimen name="meal_card_padding">32dp</dimen>
-    <dimen name="padding_recycler_view">16dp</dimen>
+    <dimen name="x_small_25">1dp</dimen>
+    <dimen name="x_small_50">2dp</dimen>
+    <dimen name="x_small_75">3dp</dimen>
+    <dimen name="x_small_100">4dp</dimen>
+
+    <dimen name="small_0">0dp</dimen>
+    <dimen name="small_50">4dp</dimen>
+    <dimen name="small_100">8dp</dimen>
+    <dimen name="small_125">12dp</dimen>
+
+    <dimen name="normal_100">16dp</dimen>
+    <dimen name="normal_125">20dp</dimen>
+    <dimen name="normal_150">24dp</dimen>
+    <dimen name="normal_175">28dp</dimen>
+
+    <dimen name="normal_200">32dp</dimen>
+    <dimen name="normal_225">36dp</dimen>
+    <dimen name="normal_250">40dp</dimen>
+    <dimen name="normal_275">44dp</dimen>
+    <dimen name="normal_300">48dp</dimen>
+
+    <dimen name="large_100">32dp</dimen>
+    <dimen name="large_125">40dp</dimen>
+    <dimen name="large_150">48dp</dimen>
+    <dimen name="large_175">56dp</dimen>
+
+    <dimen name="large_200">64dp</dimen>
+    <dimen name="large_225">72dp</dimen>
+
+    <dimen name="large_300">128dp</dimen>
+    <dimen name="large_325">136dp</dimen>
+    <dimen name="large_350">144dp</dimen>
+    <dimen name="large_375">152dp</dimen>
+
+    <dimen name="x_large_100">64dp</dimen>
+    <dimen name="x_large_125">80dp</dimen>
+    <dimen name="x_large_150">96dp</dimen>
+    <dimen name="x_large_175">112dp</dimen>
+    <dimen name="x_large_200">128dp</dimen>
+    <dimen name="x_large_225">144dp</dimen>
+    <dimen name="x_large_250">160dp</dimen>
+    <dimen name="x_large_275">176dp</dimen>
+    <dimen name="x_large_300">192dp</dimen>
+    <dimen name="x_large_325">208dp</dimen>
+    <dimen name="x_large_350">224dp</dimen>
+    <dimen name="x_large_375">240dp</dimen>
+    <dimen name="x_large_400">256dp</dimen>
+
+    <dimen name="normal_75_text">12sp</dimen>
+    <dimen name="normal_100_text">16sp</dimen>
+    <dimen name="normal_125_text">20sp</dimen>
+    <dimen name="normal_150_text">24sp</dimen>
+    <dimen name="normal_175_text">28sp</dimen>
+    <dimen name="normal_200_text">32sp</dimen>
 </resources>

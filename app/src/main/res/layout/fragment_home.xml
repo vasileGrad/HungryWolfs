@@ -2,7 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="fragments.HomeFragment">
+    tools:context=".fragments.HomeFragment">
+
+    <data>
+
+        <variable
+            name="homeFragment"
+            type="com.example.hungrywolfs.fragments.HomeFragment" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -10,31 +17,31 @@
 
         <TextView
             android:id="@+id/home_text"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/small_0"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_left"
-            android:layout_marginTop="@dimen/margin_top"
-            android:layout_marginEnd="150dp"
+            android:layout_marginStart="@dimen/normal_250"
+            android:layout_marginTop="@dimen/normal_250"
+            android:fontFamily="@font/sf_pro_rounded"
             android:gravity="start"
-            android:text="@string/home_title"
+            android:text="@string/home_screen_title"
             android:textColor="@color/black"
-            android:textSize="@dimen/home_text_size"
+            android:textSize="@dimen/normal_200_text"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.5" />
 
         <ImageButton
             android:id="@+id/search_button"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="100dp"
+            android:layout_width="@dimen/small_0"
+            android:layout_height="@dimen/small_0"
+            android:layout_marginTop="@dimen/normal_175"
             android:background="@drawable/ic_search_button"
             android:contentDescription="@string/search"
-            android:text="@string/search"
-            app:layout_constraintStart_toStartOf="@+id/home_text"
-            app:layout_constraintTop_toBottomOf="@+id/home_text" />
+            app:layout_constraintStart_toStartOf="@id/home_text"
+            app:layout_constraintTop_toBottomOf="@id/home_text"
+            app:layout_constraintWidth_percent="0.78"
+            app:layout_constraintHeight_percent="0.08" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_categories"
@@ -42,11 +49,13 @@
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:orientation="horizontal"
-            android:padding="@dimen/padding_recycler_view"
+            android:paddingStart="@dimen/normal_250"
+            android:paddingTop="@dimen/normal_200"
+            android:paddingEnd="@dimen/normal_250"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/search_button" />
+            app:layout_constraintTop_toBottomOf="@id/search_button" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_meals"
@@ -54,12 +63,13 @@
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:orientation="horizontal"
-            android:padding="@dimen/padding_recycler_view"
+            android:paddingStart="@dimen/normal_250"
+            android:paddingTop="@dimen/normal_200"
+            android:paddingEnd="@dimen/normal_125"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recycler_view_categories" />
+            app:layout_constraintTop_toBottomOf="@id/recycler_view_categories" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>

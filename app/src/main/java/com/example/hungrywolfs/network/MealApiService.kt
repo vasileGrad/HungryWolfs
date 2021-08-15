@@ -19,17 +19,17 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface CategoriesApiService {
+interface MealApiService {
 
     @GET("/api/json/v1/1/categories.php")
-    suspend fun getFoodCategories(): FoodCategories
+    suspend fun getMealCategories(): Category
 
     @GET("/api/json/v1/1/filter.php")
-    suspend fun getMeals(@Query("c") c: String): Meals
+    suspend fun getMeals(@Query("c") c: String): Meal
 }
 
-object CategoriesApi {
-    val retrofitService: CategoriesApiService by lazy {
-        retrofit.create(CategoriesApiService::class.java)
+object MealApi {
+    val retrofit_service: MealApiService by lazy {
+        retrofit.create(MealApiService::class.java)
     }
 }
