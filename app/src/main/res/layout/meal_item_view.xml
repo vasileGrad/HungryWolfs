@@ -22,7 +22,7 @@
         android:layout_height="@dimen/small_0"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/x_large_200"
-        android:elevation="@dimen/small_50"
+        android:elevation="@dimen/small_135"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
