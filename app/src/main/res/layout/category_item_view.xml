@@ -13,7 +13,7 @@
         android:gravity="center"
         android:paddingLeft="@dimen/small_125"
         android:paddingRight="@dimen/small_125"
-        android:textSize="@dimen/normal_100_text"
+        android:textSize="@dimen/small_135"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/category" />

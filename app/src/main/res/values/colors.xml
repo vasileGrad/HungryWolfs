@@ -7,9 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="gray_200">#FFE5E5E5</color>
-    <color name="gray_500">#FFADADAF</color>
-    <color name="gray_700">#FF9A9A9D</color>
-    <color name="orange_200">#FFFF4B3A</color>
-    <color name="orange_500">#FFFA4A0C</color>
+    <color name="white_gray">#FFE5E5E5</color>
+    <color name="dark_gray">#FFADADAF</color>
+    <color name="darker_gray">#FF9A9A9D</color>
+    <color name="splash_background">#FFFF4B3A</color>
+    <color name="orange">#FFFA4A0C</color>
 </resources>

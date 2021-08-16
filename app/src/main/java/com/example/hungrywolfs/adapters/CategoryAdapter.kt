@@ -42,7 +42,7 @@ class CategoryAdapter :
             holder.textView.setTextColor(
                 ContextCompat.getColor(
                     holder.textView.context,
-                    R.color.orange_500
+                    R.color.orange
                 )
             )
             holder.underlineLine.visibility = View.VISIBLE
@@ -50,7 +50,7 @@ class CategoryAdapter :
             holder.textView.setTextColor(
                 ContextCompat.getColor(
                     holder.textView.context,
-                    R.color.gray_700
+                    R.color.darker_gray
                 )
             )
             holder.underlineLine.visibility = View.INVISIBLE
