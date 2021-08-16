@@ -13,7 +13,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clipChildren="false">
 
         <TextView
             android:id="@+id/home_text"
@@ -38,10 +39,10 @@
             android:layout_marginTop="@dimen/normal_175"
             android:background="@drawable/ic_search_button"
             android:contentDescription="@string/search"
+            app:layout_constraintHeight_percent="0.08"
             app:layout_constraintStart_toStartOf="@id/home_text"
             app:layout_constraintTop_toBottomOf="@id/home_text"
-            app:layout_constraintWidth_percent="0.78"
-            app:layout_constraintHeight_percent="0.08" />
+            app:layout_constraintWidth_percent="0.78" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_categories"
@@ -61,6 +62,7 @@
             android:id="@+id/recycler_view_meals"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipChildren="false"
             android:clipToPadding="false"
             android:orientation="horizontal"
             android:paddingStart="@dimen/normal_250"
@@ -69,7 +71,8 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recycler_view_categories" />
+            app:layout_constraintTop_toBottomOf="@id/recycler_view_categories"
+            tools:listitem="@layout/meal_item_view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/x_large_300"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="@dimen/normal_150">
+    android:clipToPadding="false">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
