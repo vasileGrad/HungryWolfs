@@ -29,7 +29,7 @@ interface MealApiService {
 }
 
 object MealApi {
-    val retrofit_service: MealApiService by lazy {
+    val retrofitService: MealApiService by lazy {
         retrofit.create(MealApiService::class.java)
     }
 }

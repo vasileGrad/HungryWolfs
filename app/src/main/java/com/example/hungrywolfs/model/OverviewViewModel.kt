@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.hungrywolfs.network.*
 import kotlinx.coroutines.launch
 
-class AppViewModel : ViewModel() {
+class OverviewViewModel : ViewModel() {
     private val _foodCategories = MutableLiveData<Category>()
     val foodCategories: LiveData<Category> = _foodCategories
 
@@ -22,12 +22,12 @@ class AppViewModel : ViewModel() {
     private fun getCategories() {
         viewModelScope.launch {
             try {
-               MealApi.retrofit_service.getMealCategories()?.let {
-                   _foodCategories.value = it
-                   it.categories.getOrNull(0)?.let {
-                       getSelectedMeals(it)
-                   }
-               }
+                MealApi.retrofitService.getMealCategories()?.let {
+                    _foodCategories.value = it
+                    it.categories.getOrNull(0)?.let {
+                        getSelectedMeals(it)
+                    }
+                }
                 Log.d("OrderViewModel: ", "Categories retrieved with success")
             } catch (e: Exception) {
                 Log.d("OrderViewModel: ", "Error: $e")
@@ -36,10 +36,9 @@ class AppViewModel : ViewModel() {
     }
 
     fun getSelectedMeals(category: CategoryInfo) {
-        Log.d("Tagg", "getSelectedMeals: ")
         viewModelScope.launch {
             try {
-                _meals.value = MealApi.retrofit_service.getMeals(category.strCategory)
+                _meals.value = MealApi.retrofitService.getMeals(category.strCategory)
                 Log.d("OrderViewModel: ", "Meals retrieved with success")
             } catch (e: Exception) {
                 Log.d("OrderViewModel: ", "Error: $e")

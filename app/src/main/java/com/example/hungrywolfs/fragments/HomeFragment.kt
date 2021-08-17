@@ -6,18 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hungrywolfs.R
 import com.example.hungrywolfs.adapters.CategoryAdapter
 import com.example.hungrywolfs.adapters.MealAdapter
 import com.example.hungrywolfs.databinding.FragmentHomeBinding
-import com.example.hungrywolfs.model.AppViewModel
+import com.example.hungrywolfs.model.OverviewViewModel
 
 class HomeFragment : Fragment() {
 
-    private val viewModel: AppViewModel by activityViewModels()
+    private val viewModel: OverviewViewModel by viewModels()
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(

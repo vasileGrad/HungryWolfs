@@ -1,58 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="x_small_25">1dp</dimen>
-    <dimen name="x_small_50">2dp</dimen>
-    <dimen name="x_small_75">3dp</dimen>
-    <dimen name="x_small_100">4dp</dimen>
+    <dimen name="textsize_category_item_view">14sp</dimen>
+    <dimen name="textsize_meal_item_view_text">20sp</dimen>
+    <dimen name="textsize_fragment_home_title">32sp</dimen>
 
-    <dimen name="small_0">0dp</dimen>
-    <dimen name="small_50">4dp</dimen>
-    <dimen name="small_100">8dp</dimen>
-    <dimen name="small_125">12dp</dimen>
-    <dimen name="small_135">14dp</dimen>
-
-    <dimen name="normal_100">16dp</dimen>
-    <dimen name="normal_125">20dp</dimen>
-    <dimen name="normal_150">24dp</dimen>
-    <dimen name="normal_175">28dp</dimen>
-
-    <dimen name="normal_200">32dp</dimen>
-    <dimen name="normal_225">36dp</dimen>
-    <dimen name="normal_250">40dp</dimen>
-    <dimen name="normal_275">44dp</dimen>
-    <dimen name="normal_300">48dp</dimen>
-
-    <dimen name="large_100">32dp</dimen>
-    <dimen name="large_125">40dp</dimen>
-    <dimen name="large_150">48dp</dimen>
-    <dimen name="large_175">56dp</dimen>
-
-    <dimen name="large_200">64dp</dimen>
-    <dimen name="large_225">72dp</dimen>
-
-    <dimen name="large_300">128dp</dimen>
-    <dimen name="large_325">136dp</dimen>
-    <dimen name="large_350">144dp</dimen>
-    <dimen name="large_375">152dp</dimen>
-
-    <dimen name="x_large_100">64dp</dimen>
-    <dimen name="x_large_125">80dp</dimen>
-    <dimen name="x_large_150">96dp</dimen>
-    <dimen name="x_large_175">112dp</dimen>
-    <dimen name="x_large_200">128dp</dimen>
-    <dimen name="x_large_225">144dp</dimen>
-    <dimen name="x_large_250">160dp</dimen>
-    <dimen name="x_large_275">176dp</dimen>
-    <dimen name="x_large_300">192dp</dimen>
-    <dimen name="x_large_325">208dp</dimen>
-    <dimen name="x_large_350">224dp</dimen>
-    <dimen name="x_large_375">240dp</dimen>
-    <dimen name="x_large_400">256dp</dimen>
-
-    <dimen name="normal_75_text">12sp</dimen>
-    <dimen name="normal_100_text">16sp</dimen>
-    <dimen name="normal_125_text">20sp</dimen>
-    <dimen name="normal_150_text">24sp</dimen>
-    <dimen name="normal_175_text">28sp</dimen>
-    <dimen name="normal_200_text">32sp</dimen>
+    <dimen name="height_category_item_text">3dp</dimen>
+    <dimen name="margin_top_category_line">4dp</dimen>
+    <dimen name="elevation_meal_item_card_view">4dp</dimen>
+    <dimen name="padding_category_item_title">12dp</dimen>
+    <dimen name="elevation_meal_item_circle_image_view">12dp</dimen>
+    <dimen name="padding_end_recycler_view_meals">20dp</dimen>
+    <dimen name="size_divider_recycler_view_meals">20dp</dimen>
+    <dimen name="margin_start_fragment_home_text">40dp</dimen>
+    <dimen name="margin_top_fragment_home_text">40dp</dimen>
+    <dimen name="padding_start_fragment_home_recycler_categories">40dp</dimen>
+    <dimen name="padding_end_fragment_home_recycler_categories">40dp</dimen>
+    <dimen name="padding_start_fragment_home_recycler_meals">40dp</dimen>
+    <dimen name="margin_top_fragment_home_button">28dp</dimen>
+    <dimen name="radius_rounded_corner_text">32dp</dimen>
+    <dimen name="card_corner_radius_card_view">32dp</dimen>
+    <dimen name="padding_top_fragment_home_recycler_categories">32dp</dimen>
+    <dimen name="padding_top_fragment_home_recycler_meals">32dp</dimen>
+    <dimen name="radius_rounded_corner_image">48dp</dimen>
+    <dimen name="margin_bottom_meal_item_view_recycler_image">128dp</dimen>
+    <dimen name="width_constraint_layout_meal_item_view">192dp</dimen>
+    <dimen name="margin_bottom_meal_item_view_circle_image">20dp</dimen>
+    <dimen name="margin_top_meal_item_view_card">48dp</dimen>
+    <dimen name="padding_top_meal_item_view_card">40dp</dimen>
+    <dimen name="margin_top_meal_item_view_text">100dp</dimen>
+    <dimen name="padding_meal_item_view_text">32dp</dimen>
+    <dimen name="width_meal_item_view_layout">192dp</dimen>
+    <dimen name="height_meal_item_view_layout">260dp</dimen>
 </resources>

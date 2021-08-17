@@ -2,57 +2,51 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/x_large_300"
-    android:layout_height="wrap_content"
+    android:layout_width="@dimen/width_meal_item_view_layout"
+    android:layout_height="@dimen/height_meal_item_view_layout"
     android:clipToPadding="false">
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/x_large_350"
-        android:backgroundTint="@color/white"
-        android:elevation="@dimen/small_50"
-        app:cardCornerRadius="@dimen/normal_200"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/meal_image"
-        android:layout_width="@dimen/small_0"
-        android:layout_height="@dimen/small_0"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/x_large_200"
-        android:elevation="@dimen/small_135"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/margin_bottom_meal_item_view_circle_image"
+        android:elevation="@dimen/elevation_meal_item_circle_image_view"
         android:src="@drawable/ic_launcher_background"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.65" />
 
-    <LinearLayout
-        android:layout_width="@dimen/small_0"
-        android:layout_height="@dimen/small_0"
-        android:layout_marginTop="@dimen/normal_100"
-        android:elevation="@dimen/small_50"
-        android:gravity="center_horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/meal_image"
-        app:layout_constraintStart_toStartOf="@id/meal_image"
-        app:layout_constraintTop_toBottomOf="@id/meal_image">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_top_meal_item_view_card"
+        android:backgroundTint="@color/white"
+        android:elevation="@dimen/elevation_meal_item_card_view"
+        android:paddingTop="@dimen/padding_top_meal_item_view_card"
+        app:cardCornerRadius="@dimen/card_corner_radius_card_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/meal_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
+            android:layout_marginTop="@dimen/margin_top_meal_item_view_text"
             android:ellipsize="end"
             android:fontFamily="@font/sf_pro_rounded"
-            android:gravity="center|top"
+            android:gravity="center_horizontal"
             android:maxLines="3"
+            android:paddingLeft="@dimen/padding_meal_item_view_text"
+            android:paddingRight="@dimen/padding_meal_item_view_text"
+            android:paddingBottom="@dimen/padding_meal_item_view_text"
             android:textColor="@color/black"
-            android:textSize="@dimen/normal_125_text"
-            tools:text="@string/meal_name" />
-
-    </LinearLayout>
+            android:textSize="@dimen/textsize_meal_item_view_text"
+            tools:text="meal_name" />
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
