@@ -33,7 +33,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val categoryAdapter = CategoryAdapter()
+        val categoryAdapter = CategoryAdapter { category -> viewModel.getSelectedMeals(category) }
         val mealAdapter = MealAdapter()
 
         val divider = DividerItemDecoration(requireContext(), RecyclerView.HORIZONTAL)
@@ -44,11 +44,10 @@ class HomeFragment : Fragment() {
         binding.recyclerViewCategories.adapter = categoryAdapter
         binding.recyclerViewMeals.adapter = mealAdapter
 
-        viewModel.info.observe(viewLifecycleOwner) { categoryAdapter.setCategories(it.categories) }
-        viewModel.mealInfo.observe(viewLifecycleOwner) {
+        viewModel.foodCategories.observe(viewLifecycleOwner) { categoryAdapter.setCategories(it.categories) }
+        viewModel.meals.observe(viewLifecycleOwner) {
             mealAdapter.setMeals(it.meals)
             binding.recyclerViewMeals.scrollToPosition(0)
         }
-        categoryAdapter.selected.observe(viewLifecycleOwner) { viewModel.getSelectedMeals(it) }
     }
 }

@@ -5,17 +5,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.hungrywolfs.network.MealApi
-import com.example.hungrywolfs.network.Category
-import com.example.hungrywolfs.network.Meal
+import com.example.hungrywolfs.network.*
 import kotlinx.coroutines.launch
 
 class AppViewModel : ViewModel() {
-    private val _foodInfo = MutableLiveData<Category>()
-    val info: LiveData<Category> = _foodInfo
+    private val _foodCategories = MutableLiveData<Category>()
+    val foodCategories: LiveData<Category> = _foodCategories
 
-    private val _mealInfo = MutableLiveData<Meal>()
-    val mealInfo: LiveData<Meal> = _mealInfo
+    private val _meals = MutableLiveData<Meal>()
+    val meals: LiveData<Meal> = _meals
 
     init {
         getCategories()
@@ -24,7 +22,12 @@ class AppViewModel : ViewModel() {
     private fun getCategories() {
         viewModelScope.launch {
             try {
-                _foodInfo.value = MealApi.retrofit_service.getMealCategories()
+               MealApi.retrofit_service.getMealCategories()?.let {
+                   _foodCategories.value = it
+                   it.categories.getOrNull(0)?.let {
+                       getSelectedMeals(it)
+                   }
+               }
                 Log.d("OrderViewModel: ", "Categories retrieved with success")
             } catch (e: Exception) {
                 Log.d("OrderViewModel: ", "Error: $e")
@@ -32,14 +35,11 @@ class AppViewModel : ViewModel() {
         }
     }
 
-    fun getSelectedMeals(categoryId: Int) {
+    fun getSelectedMeals(category: CategoryInfo) {
+        Log.d("Tagg", "getSelectedMeals: ")
         viewModelScope.launch {
             try {
-                _mealInfo.value = info.value?.categories?.get(categoryId)?.let {
-                    MealApi.retrofit_service.getMeals(
-                        it.strCategory
-                    )
-                }
+                _meals.value = MealApi.retrofit_service.getMeals(category.strCategory)
                 Log.d("OrderViewModel: ", "Meals retrieved with success")
             } catch (e: Exception) {
                 Log.d("OrderViewModel: ", "Error: $e")

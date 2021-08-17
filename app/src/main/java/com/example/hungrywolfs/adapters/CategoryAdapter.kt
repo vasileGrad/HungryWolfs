@@ -5,19 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hungrywolfs.R
 import com.example.hungrywolfs.network.CategoryInfo
 
-class CategoryAdapter :
+class CategoryAdapter(private val clickListener: (category: CategoryInfo) -> Unit) :
     RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
     private val categories: MutableList<CategoryInfo> = mutableListOf()
-
-    private val _selected = MutableLiveData<Int>()
-    val selected: LiveData<Int> = _selected
 
     private var actualSelected = 0
     private var oldSelected = 0
@@ -56,11 +51,11 @@ class CategoryAdapter :
             holder.underlineLine.visibility = View.INVISIBLE
         }
         holder.textView.setOnClickListener {
-            _selected.value = position
             oldSelected = actualSelected
             actualSelected = position
             notifyItemChanged(actualSelected)
             notifyItemChanged(oldSelected)
+            clickListener(category)
         }
     }
 
@@ -70,6 +65,5 @@ class CategoryAdapter :
         this.categories.clear()
         this.categories.addAll(categories)
         notifyDataSetChanged()
-        _selected.value = 0
     }
 }
