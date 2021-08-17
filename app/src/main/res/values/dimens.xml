@@ -31,4 +31,7 @@
     <dimen name="padding_meal_item_view_text">32dp</dimen>
     <dimen name="width_meal_item_view_layout">192dp</dimen>
     <dimen name="height_meal_item_view_layout">260dp</dimen>
+    <dimen name="splash_title_size">200dp</dimen>
+    <dimen name="splash_title_margin">32dp</dimen>
+    <dimen name="splash_wolf_height">380dp</dimen>
 </resources>
