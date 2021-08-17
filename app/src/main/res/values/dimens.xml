@@ -55,4 +55,8 @@
     <dimen name="normal_150_text">24sp</dimen>
     <dimen name="normal_175_text">28sp</dimen>
     <dimen name="normal_200_text">32sp</dimen>
+
+    <dimen name="splash_title_size">200dp</dimen>
+    <dimen name="splash_title_margin">32dp</dimen>
+    <dimen name="splash_wolf_height">380dp</dimen>
 </resources>
