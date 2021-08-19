@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
@@ -29,5 +32,9 @@
         android:name="com.example.hungrywolfs.fragments.SearchFragment"
         android:label="@string/search"
         tools:layout="@layout/fragment_search" />
-
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.hungrywolfs.fragments.DetailsFragment"
+        android:label="@string/details"
+        tools:layout="@layout/fragment_details" />
 </navigation>
