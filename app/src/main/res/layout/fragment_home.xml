@@ -7,8 +7,8 @@
     <data>
 
         <variable
-            name="homeFragment"
-            type="com.example.hungrywolfs.fragments.HomeFragment" />
+            name="viewModel"
+            type="com.example.hungrywolfs.model.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,6 +39,7 @@
             android:layout_marginTop="@dimen/margin_top_fragment_home_button"
             android:background="@drawable/ic_search_button"
             android:contentDescription="@string/search"
+            android:onClick="@{() -> viewModel.goToSearchFragment()}"
             app:layout_constraintHeight_percent="0.08"
             app:layout_constraintStart_toStartOf="@id/home_text"
             app:layout_constraintTop_toBottomOf="@id/home_text"

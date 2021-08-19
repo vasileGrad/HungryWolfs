@@ -1,19 +1,20 @@
 package com.example.hungrywolfs.model
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.example.hungrywolfs.SingleLiveEvent
 import com.example.hungrywolfs.network.*
 import kotlinx.coroutines.launch
 
-class OverviewViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
     private val _foodCategories = MutableLiveData<Category>()
     val foodCategories: LiveData<Category> = _foodCategories
 
     private val _meals = MutableLiveData<Meal>()
     val meals: LiveData<Meal> = _meals
+
+    private val _navigateToSearch = SingleLiveEvent<Any>()
+    val navigateToSearch = _navigateToSearch
 
     init {
         getCategories()
@@ -44,5 +45,9 @@ class OverviewViewModel : ViewModel() {
                 Log.d("OrderViewModel: ", "Error: $e")
             }
         }
+    }
+
+    fun goToSearchFragment() {
+        _navigateToSearch.call()
     }
 }

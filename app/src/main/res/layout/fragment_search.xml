@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.SearchFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.hungrywolfs.model.SearchViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_gray"
+        android:clipChildren="false">
+
+        <ImageButton
+            android:id="@+id/icon_back"
+            android:layout_width="@dimen/width_fragment_search_image_button"
+            android:layout_height="@dimen/height_fragment_search_image_button"
+            android:layout_marginStart="@dimen/margin_start_fragment_search_image_button"
+            android:layout_marginTop="@dimen/margin_top_fragment_image_button"
+            android:background="@color/white_gray"
+            android:onClick="@{() -> viewModel.goToHomeFragment()}"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/search_meals"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_fragment_search_edit_text"
+            android:layout_marginEnd="@dimen/margin_end_fragment_search_edit_text"
+            android:background="@null"
+            android:fontFamily="@font/sf_pro_rounded"
+            android:hint="@string/search"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:text="@={viewModel.query}"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:textSize="@dimen/text_size_fragment_start_edit_text"
+            app:layout_constraintBottom_toBottomOf="@id/icon_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/icon_back"
+            app:layout_constraintTop_toTopOf="@id/icon_back" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_fragment_search_layout"
+            android:background="@drawable/rounded_corner_card_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_meals">
+
+            <TextView
+                android:id="@+id/search_results"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_top_fragment_search_results"
+                android:fontFamily="@font/sf_pro_rounded"
+                android:text="@{@plurals/meals(viewModel.searchedMeals.size, viewModel.searchedMeals.size)}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_fragment_search_results"
+                android:textStyle="bold"
+                tools:text="@string/found_results_text" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_search_meals"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_top_fragment_search_recycler"
+                android:layout_marginBottom="@dimen/margin_bottom_fragment_search_recycler"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:paddingStart="@dimen/padding_start_fragment_search_recycler"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_results"
+                app:listMeals="@{viewModel.searchedMeals}"
+                app:spanCount="2"
+                tools:itemCount="16"
+                tools:listitem="@layout/grid_view_item" />
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

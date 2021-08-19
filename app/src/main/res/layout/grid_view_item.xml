@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mealInfo"
+            type="com.example.hungrywolfs.network.MealInfo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/width_grid_view_item_layout"
+        android:layout_height="@dimen/height_grid_view_item_layout">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/white"
+            android:elevation="@dimen/elevation_meal_item_card_view"
+            app:cardCornerRadius="@dimen/card_corner_radius_card_view"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/meal_image"
+                android:layout_width="@dimen/size_grid_view_item_circle_image"
+                android:layout_height="@dimen/size_grid_view_item_circle_image"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_top_grid_view_item_circle_image"
+                android:elevation="@dimen/elevation_meal_item_circle_image_view"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strMealThumb="@{mealInfo.strMealThumb}"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/meal_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_grid_view_item_text"
+                android:ellipsize="end"
+                android:fontFamily="@font/sf_pro_rounded"
+                android:gravity="center_horizontal"
+                android:maxLines="2"
+                android:paddingLeft="@dimen/padding_meal_item_view_text"
+                android:paddingRight="@dimen/padding_meal_item_view_text"
+                android:paddingBottom="@dimen/padding_top_grid_view_item_text"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_meal_item_view_text"
+                app:strMeal="@{mealInfo.strMeal}"
+                tools:text="@string/meal_name" />
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
