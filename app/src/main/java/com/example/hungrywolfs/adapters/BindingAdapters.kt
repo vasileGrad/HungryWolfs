@@ -10,23 +10,22 @@ import com.example.hungrywolfs.R
 import com.example.hungrywolfs.network.MealInfo
 
 @BindingAdapter("strMealThumb")
-fun bindCircleImage(imgView: ImageView, imgUrl: String?) {
-    imgUrl?.let {
-        val imgUri = imgUrl.toUri()
-        imgView.load(imgUri) {
-            placeholder(R.drawable.loading_animation)
-            error(R.drawable.ic_broken_image)
-        }
+fun ImageView.bindCircleImage(imgUrl: String?) {
+    imgUrl ?: return
+    val imgUri = imgUrl.toUri()
+    this.load(imgUri) {
+        placeholder(R.drawable.loading_animation)
+        error(R.drawable.ic_broken_image)
     }
 }
 
 @BindingAdapter("strMeal")
-fun bindText(textView: TextView, text: String?) {
-    textView.text = text
+fun TextView.bindText(text: String?) {
+    this.text = text
 }
 
 @BindingAdapter("listMeals")
 fun RecyclerView.bindRecycler(listMeals: List<MealInfo>?) {
-    val adapter = this.adapter as MealGridAdapter
-    adapter.submitList(listMeals)
+    val adapter = this.adapter as? MealGridAdapter
+    adapter?.submitList(listMeals)
 }

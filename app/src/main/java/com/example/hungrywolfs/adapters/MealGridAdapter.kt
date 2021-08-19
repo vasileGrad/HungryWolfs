@@ -37,7 +37,6 @@ class MealGridAdapter :
     }
 
     override fun onBindViewHolder(holder: MealGridViewHolder, position: Int) {
-        val mealInfo = getItem(position)
-        holder.bind(mealInfo)
+        holder.bind(getItem(position))
     }
 }
