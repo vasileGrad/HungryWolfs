@@ -37,10 +37,17 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val dividerSearch = DividerItemDecoration(requireContext(), RecyclerView.HORIZONTAL)
+        val dividerSearchHorizontal =
+            DividerItemDecoration(requireContext(), RecyclerView.HORIZONTAL)
         ContextCompat.getDrawable(requireContext(), R.drawable.divider_search)
-            ?.let { dividerSearch.setDrawable(it) }
-        binding.recyclerViewSearchMeals.addItemDecoration(dividerSearch)
+            ?.let { dividerSearchHorizontal.setDrawable(it) }
+        binding.recyclerViewSearchMeals.addItemDecoration(dividerSearchHorizontal)
+
+        val dividerSearchVertical = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)
+        ContextCompat.getDrawable(requireContext(), R.drawable.divider_search)
+            ?.let { dividerSearchVertical.setDrawable(it) }
+        binding.recyclerViewSearchMeals.addItemDecoration(dividerSearchVertical)
+
         binding.searchMeals.isFocusableInTouchMode
         binding.searchMeals.isFocusable
         binding.searchMeals.requestFocus()
