@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/category_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_text"
+        android:gravity="center"
+        android:paddingStart="@dimen/padding_category_item_title"
+        android:paddingEnd="@dimen/padding_category_item_title"
+        android:textSize="@dimen/textsize_category_item_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/category" />
+
+    <View
+        android:id="@+id/category_underline"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_category_item_text"
+        android:layout_marginTop="@dimen/margin_top_category_line"
+        android:background="@drawable/rounded_corner_text"
+        app:layout_constraintEnd_toEndOf="@id/category_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/category_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="textsize_category_item_view">14sp</dimen>
+    <dimen name="textsize_meal_item_view_text">20sp</dimen>
+    <dimen name="textsize_fragment_home_title">32sp</dimen>
 
+    <dimen name="height_category_item_text">3dp</dimen>
+    <dimen name="margin_top_category_line">4dp</dimen>
+    <dimen name="elevation_meal_item_card_view">4dp</dimen>
+    <dimen name="padding_category_item_title">12dp</dimen>
+    <dimen name="elevation_meal_item_circle_image_view">12dp</dimen>
+    <dimen name="padding_end_recycler_view_meals">20dp</dimen>
+    <dimen name="size_divider_recycler_view_meals">20dp</dimen>
+    <dimen name="margin_start_fragment_home_text">40dp</dimen>
+    <dimen name="margin_top_fragment_home_text">40dp</dimen>
+    <dimen name="padding_start_fragment_home_recycler_categories">40dp</dimen>
+    <dimen name="padding_end_fragment_home_recycler_categories">40dp</dimen>
+    <dimen name="padding_start_fragment_home_recycler_meals">40dp</dimen>
+    <dimen name="margin_top_fragment_home_button">28dp</dimen>
+    <dimen name="radius_rounded_corner_text">32dp</dimen>
+    <dimen name="card_corner_radius_card_view">32dp</dimen>
+    <dimen name="padding_top_fragment_home_recycler_categories">32dp</dimen>
+    <dimen name="padding_top_fragment_home_recycler_meals">32dp</dimen>
+    <dimen name="radius_rounded_corner_image">48dp</dimen>
+    <dimen name="margin_bottom_meal_item_view_recycler_image">128dp</dimen>
+    <dimen name="width_constraint_layout_meal_item_view">192dp</dimen>
+    <dimen name="margin_bottom_meal_item_view_circle_image">20dp</dimen>
+    <dimen name="margin_top_meal_item_view_card">48dp</dimen>
+    <dimen name="padding_top_meal_item_view_card">40dp</dimen>
+    <dimen name="margin_top_meal_item_view_text">100dp</dimen>
+    <dimen name="padding_meal_item_view_text">32dp</dimen>
+    <dimen name="width_meal_item_view_layout">192dp</dimen>
+    <dimen name="height_meal_item_view_layout">260dp</dimen>
     <dimen name="splash_title_size">200dp</dimen>
     <dimen name="splash_title_margin">32dp</dimen>
     <dimen name="splash_wolf_height">380dp</dimen>
