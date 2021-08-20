@@ -41,106 +41,152 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/image_details"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="14dp"
-            android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/icon_favorites" />
-
-        <TextView
-            android:id="@+id/details_title"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:fontFamily="@font/sf_pro_rounded"
-            android:gravity="center_horizontal"
-            android:text="@string/details_meal_title"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textsize_fragment_details_meal_title"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_details"
-            tools:text="@string/details_meal_title" />
+            android:fillViewport="true"
+            app:layout_constraintTop_toBottomOf="@id/icon_favorites">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_details_tags"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="14dp"
-            android:clipToPadding="false"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/details_title"
-            tools:listitem="@layout/meal_tag_item_view" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/details_ingredients_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:fontFamily="@font/sf_pro_rounded"
-            android:gravity="left"
-            android:text="@string/ingredients"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textsize_fragment_details_ingredients_title"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recycler_view_details_tags"
-            tools:text="@string/ingredients" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image_details"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="14dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="@dimen/elevation_meal_item_circle_image_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.25"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:layout_constraintWidth_percent="0.62"
+                    app:strMealThumb="@{viewModel.mealDetails.meals.get(0).strMealThumb}"
+                    tools:src="@tools:sample/backgrounds/scenic" />
 
-        <TextView
-            android:id="@+id/details_ingredients_checkboxes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/sf_pro_text"
-            android:gravity="left"
-            android:text="3/4 cup soy sauce \n1/2 cup water \n1 tsp.brown sugar"
-            android:textColor="@color/darker_gray"
-            android:textSize="@dimen/textsize_fragment_details_instructions_title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/details_ingredients_title"
-            tools:text="3/4 cup soy sauce \n1/2 cup water \n1 tsp.brown sugar" />
+                <TextView
+                    android:id="@+id/details_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/sf_pro_rounded"
+                    android:gravity="center_horizontal"
+                    android:text="@{viewModel.mealDetails.meals.get(0).strMeal}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_fragment_details_meal_title"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/image_details"
+                    tools:text="@string/details_meal_title" />
 
-        <TextView
-            android:id="@+id/details_instructions_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:fontFamily="@font/sf_pro_rounded"
-            android:gravity="left"
-            android:text="@string/instructions"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textsize_fragment_details_instructions_title"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/details_ingredients_checkboxes"
-            tools:text="@string/instructions" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_details_tags"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="14dp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/details_title"
+                    tools:listitem="@layout/meal_tag_item_view" />
 
-        <TextView
-            android:id="@+id/details_instructions_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/sf_pro_text"
-            android:gravity="left"
-            android:text="Preheat oven to 350. Spray a 9x13-inch backing pan with non-stick spray.\n\nCombine soy sauce, 1/2 cup water"
-            android:textColor="@color/darker_gray"
-            android:textSize="@dimen/textsize_fragment_details_instructions_title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/details_instructions_title"
-            tools:listitem="@layout/meal_tag_item_view"
-            tools:text="Preheat oven to 350. Spray a 9x13-inch backing pan with \n Preheat oven to 350. Spray a 9x13-inch backing pan with non-stick spray.\n\nCombine soy sauce, 1/2 cup water" />
+                <TextView
+                    android:id="@+id/details_ingredients_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/sf_pro_rounded"
+                    android:gravity="left"
+                    android:text="@string/ingredients"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_fragment_details_ingredients_title"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recycler_view_details_tags"
+                    tools:text="@string/ingredients" />
+
+                <CheckBox
+                    android:id="@+id/details_checkbox_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:fontFamily="@font/sf_pro_text"
+                    android:gravity="left|center_vertical"
+                    android:text="@{viewModel.mealDetails.meals.get(0).strIngredient1}"
+                    android:textColor="@color/darker_gray"
+                    android:textSize="@dimen/textsize_fragment_details_instructions_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/details_ingredients_title"
+                    tools:text="3/4 cup soy sauce " />
+
+                <CheckBox
+                    android:id="@+id/details_checkbox_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:fontFamily="@font/sf_pro_text"
+                    android:gravity="left|center_vertical"
+                    android:text="@{viewModel.mealDetails.meals.get(0).strIngredient2}"
+                    android:textColor="@color/darker_gray"
+                    android:textSize="@dimen/textsize_fragment_details_instructions_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/details_checkbox_1"
+                    tools:text="3/4 cup soy sauce " />
+
+                <CheckBox
+                    android:id="@+id/details_checkbox_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:fontFamily="@font/sf_pro_text"
+                    android:gravity="left|center_vertical"
+                    android:text="@{viewModel.mealDetails.meals.get(0).strIngredient3}"
+                    android:textColor="@color/darker_gray"
+                    android:textSize="@dimen/textsize_fragment_details_instructions_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/details_checkbox_2"
+                    tools:text="3/4 cup soy sauce " />
+
+                <TextView
+                    android:id="@+id/details_instructions_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/sf_pro_rounded"
+                    android:gravity="left"
+                    android:text="@string/instructions"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textsize_fragment_details_instructions_title"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/details_checkbox_3"
+                    tools:text="@string/instructions" />
+
+                <TextView
+                    android:id="@+id/details_instructions_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/sf_pro_text"
+                    android:gravity="left"
+                    android:text="@{viewModel.mealDetails.meals.get(0).strInstructions}"
+                    android:textColor="@color/darker_gray"
+                    android:textSize="@dimen/textsize_fragment_details_instructions_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/details_instructions_title"
+                    tools:listitem="@layout/meal_tag_item_view"
+                    tools:text="Preheat oven to 350. Spray a 9x13-inch backing pan with \n Preheat oven to 350. Spray a 9x13-inch backing pan with non-stick spray.\n\nCombine soy sauce, 1/2 cup water" />
+            </LinearLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

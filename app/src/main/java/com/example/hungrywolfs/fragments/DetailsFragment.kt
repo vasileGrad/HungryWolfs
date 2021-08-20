@@ -1,7 +1,6 @@
 package com.example.hungrywolfs.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +30,7 @@ class DetailsFragment : Fragment() {
     ): View {
         binding = FragmentDetailsBinding.inflate(inflater)
         binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
 
@@ -38,13 +38,13 @@ class DetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerViewDetailsTags.adapter = detailsAdapter
 
-        val divider = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)
+        val divider = DividerItemDecoration(requireContext(), RecyclerView.HORIZONTAL)
         ContextCompat.getDrawable(requireContext(), R.drawable.divider_details_tag)
             ?.let { divider.setDrawable(it) }
         binding.recyclerViewDetailsTags.addItemDecoration(divider)
 
         idMeal = args.idMeal
-        Log.d("idMeal", "idMeallll: $idMeal")
+        viewModel.getMealWithDetails(idMeal)
         setupObservers()
     }
 
@@ -55,5 +55,6 @@ class DetailsFragment : Fragment() {
         viewModel.navigationToFavorites.observe(viewLifecycleOwner) {
             findNavController().navigate(R.id.action_detailsFragment_to_favoritesFragment)
         }
+        viewModel.mealDetails.observe(viewLifecycleOwner) { detailsAdapter.setMealDetails(it.meals) }
     }
 }

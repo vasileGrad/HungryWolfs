@@ -1,6 +1,5 @@
 package com.example.hungrywolfs.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +20,8 @@ class MealAdapter(private val clickListener: (idMealParam: String) -> Unit) :
     class MealViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val mealName: TextView = view.findViewById(R.id.meal_name)
         val mealImage: ImageView = view.findViewById(R.id.meal_image)
-        val mealConstraintLayout: ConstraintLayout = view.findViewById(R.id.constraint_layout_meal_item)
+        val mealConstraintLayout: ConstraintLayout =
+            view.findViewById(R.id.constraint_layout_meal_item)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealViewHolder {
@@ -40,9 +40,8 @@ class MealAdapter(private val clickListener: (idMealParam: String) -> Unit) :
                 error(R.drawable.ic_broken_image)
             }
         }
-        idMealResult = meals[position].idMeal
         holder.mealConstraintLayout.setOnClickListener {
-            Log.d("idMeal", "id= $idMealResult")
+            idMealResult = meals[position].idMeal
             clickListener(idMealResult)
         }
     }

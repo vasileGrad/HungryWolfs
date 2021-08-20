@@ -6,18 +6,18 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tag_name"
+        android:id="@+id/meal_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/round_corners_tag_view"
         android:fontFamily="@font/sf_pro_text"
         android:gravity="center"
         android:paddingStart="12dp"
-        android:paddingTop="4dp"
+        android:paddingTop="8dp"
         android:paddingEnd="12dp"
-        android:paddingBottom="4sp"
+        android:paddingBottom="8sp"
         android:textColor="@color/orange"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="casserole" />

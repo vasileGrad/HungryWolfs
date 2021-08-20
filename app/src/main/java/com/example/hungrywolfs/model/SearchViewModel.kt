@@ -11,7 +11,7 @@ private const val SEARCH_DEBOUNCE = 500L
 
 class SearchViewModel : ViewModel() {
 
-    val query = MutableLiveData<String>()
+    val query = MutableLiveData<String>("")
 
     private val _navigationToHome = SingleLiveEvent<Any>()
     val navigationToHome = _navigationToHome
@@ -28,6 +28,10 @@ class SearchViewModel : ViewModel() {
                 emit(listOf<MealInfo>())
             }
         }
+    }
+
+    fun splitMealTags() {
+
     }
 
     fun goToHomeFragment() {
