@@ -6,8 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
+import com.example.hungrywolfs.R
 import com.example.hungrywolfs.adapters.DetailsAdapter
 import com.example.hungrywolfs.databinding.FragmentDetailsBinding
 import com.example.hungrywolfs.model.DetailsViewModel
@@ -33,7 +38,22 @@ class DetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerViewDetailsTags.adapter = detailsAdapter
 
+        val divider = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)
+        ContextCompat.getDrawable(requireContext(), R.drawable.divider_details_tag)
+            ?.let { divider.setDrawable(it) }
+        binding.recyclerViewDetailsTags.addItemDecoration(divider)
+
         idMeal = args.idMeal
         Log.d("idMeal", "idMeallll: $idMeal")
+        setupObservers()
+    }
+
+    private fun setupObservers() {
+        viewModel.navigationToHome.observe(viewLifecycleOwner) {
+            findNavController().popBackStack()
+        }
+        viewModel.navigationToFavorites.observe(viewLifecycleOwner) {
+            findNavController().navigate(R.id.action_detailsFragment_to_favoritesFragment)
+        }
     }
 }

@@ -5,6 +5,9 @@
     <dimen name="textsize_fragment_home_title">32sp</dimen>
     <dimen name="text_size_fragment_start_edit_text">16sp</dimen>
     <dimen name="text_size_fragment_search_results">24sp</dimen>
+    <dimen name="textsize_fragment_details_meal_title">24sp</dimen>
+    <dimen name="textsize_fragment_details_ingredients_title">16sp</dimen>
+    <dimen name="textsize_fragment_details_instructions_title">16sp</dimen>
 
     <dimen name="height_category_item_text">3dp</dimen>
     <dimen name="margin_top_category_line">4dp</dimen>
@@ -56,4 +59,5 @@
     <dimen name="margin_top_grid_view_item_circle_image">20dp</dimen>
     <dimen name="margin_top_grid_view_item_text">120dp</dimen>
     <dimen name="padding_top_grid_view_item_text">18dp</dimen>
+    <dimen name="size_divider_details_tag">12dp</dimen>
 </resources>

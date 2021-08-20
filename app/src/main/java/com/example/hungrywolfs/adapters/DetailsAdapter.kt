@@ -21,7 +21,7 @@ class DetailsAdapter :
     }
 
     override fun onBindViewHolder(holder: DetailsViewHolder, position: Int) {
-        TODO("Not yet implemented")
+
     }
 
     override fun getItemCount(): Int {

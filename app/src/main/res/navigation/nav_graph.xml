@@ -36,9 +36,12 @@
         android:id="@+id/detailsFragment"
         android:name="com.example.hungrywolfs.fragments.DetailsFragment"
         android:label="@string/details"
-        tools:layout="@layout/fragment_details" >
+        tools:layout="@layout/fragment_details">
         <argument
             android:name="idMeal"
             app:argType="string" />
+        <action
+            android:id="@+id/action_detailsFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
     </fragment>
 </navigation>
