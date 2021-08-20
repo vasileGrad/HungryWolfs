@@ -13,8 +13,8 @@ class HomeViewModel : ViewModel() {
     private val _meals = MutableLiveData<Meal>()
     val meals: LiveData<Meal> = _meals
 
-    private val _navigateToSearch = SingleLiveEvent<Any>()
-    val navigateToSearch = _navigateToSearch
+    private val _navigationToSearch = SingleLiveEvent<Any>()
+    val navigationToSearch = _navigationToSearch
 
     init {
         getCategories()
@@ -48,6 +48,6 @@ class HomeViewModel : ViewModel() {
     }
 
     fun goToSearchFragment() {
-        _navigateToSearch.call()
+        _navigationToSearch.call()
     }
 }

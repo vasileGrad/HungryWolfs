@@ -13,8 +13,8 @@ class SearchViewModel : ViewModel() {
 
     val query = MutableLiveData<String>()
 
-    private val _navigateToHome = SingleLiveEvent<Any>()
-    val navigateToHome = _navigateToHome
+    private val _navigationToHome = SingleLiveEvent<Any>()
+    val navigationToHome = _navigationToHome
 
     // Gabi provided this code
     val searchedMeals: LiveData<List<MealInfo>> = query.switchMap {
@@ -31,6 +31,6 @@ class SearchViewModel : ViewModel() {
     }
 
     fun goToHomeFragment() {
-        _navigateToHome.call()
+        _navigationToHome.call()
     }
 }

@@ -11,6 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout_meal_item"
         android:layout_width="@dimen/width_meal_item_view_layout"
         android:layout_height="@dimen/height_meal_item_view_layout"
         android:clipToPadding="false">

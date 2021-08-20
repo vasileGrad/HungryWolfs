@@ -74,7 +74,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        viewModel.navigateToHome.observe(viewLifecycleOwner) {
+        viewModel.navigationToHome.observe(viewLifecycleOwner) {
             findNavController().popBackStack()
         }
     }
