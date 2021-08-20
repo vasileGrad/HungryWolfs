@@ -26,6 +26,9 @@ interface MealApiService {
 
     @GET("/api/json/v1/1/filter.php")
     suspend fun getMeals(@Query("c") c: String): Meal
+
+    @GET("/api/json/v1/1/search.php")
+    suspend fun getSearchedMeals(@Query("s") s: String): Meal
 }
 
 object MealApi {

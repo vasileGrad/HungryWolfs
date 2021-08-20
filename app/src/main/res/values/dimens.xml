@@ -3,6 +3,8 @@
     <dimen name="textsize_category_item_view">14sp</dimen>
     <dimen name="textsize_meal_item_view_text">20sp</dimen>
     <dimen name="textsize_fragment_home_title">32sp</dimen>
+    <dimen name="text_size_fragment_start_edit_text">16sp</dimen>
+    <dimen name="text_size_fragment_search_results">24sp</dimen>
 
     <dimen name="height_category_item_text">3dp</dimen>
     <dimen name="margin_top_category_line">4dp</dimen>
@@ -18,7 +20,7 @@
     <dimen name="padding_start_fragment_home_recycler_meals">40dp</dimen>
     <dimen name="margin_top_fragment_home_button">28dp</dimen>
     <dimen name="radius_rounded_corner_text">32dp</dimen>
-    <dimen name="card_corner_radius_card_view">32dp</dimen>
+    <dimen name="card_corner_radius_card_view">40dp</dimen>
     <dimen name="padding_top_fragment_home_recycler_categories">32dp</dimen>
     <dimen name="padding_top_fragment_home_recycler_meals">32dp</dimen>
     <dimen name="radius_rounded_corner_image">48dp</dimen>
@@ -28,10 +30,30 @@
     <dimen name="margin_top_meal_item_view_card">48dp</dimen>
     <dimen name="padding_top_meal_item_view_card">40dp</dimen>
     <dimen name="margin_top_meal_item_view_text">100dp</dimen>
-    <dimen name="padding_meal_item_view_text">32dp</dimen>
+    <dimen name="padding_meal_item_view_text">20dp</dimen>
     <dimen name="width_meal_item_view_layout">192dp</dimen>
     <dimen name="height_meal_item_view_layout">260dp</dimen>
     <dimen name="splash_title_size">200dp</dimen>
     <dimen name="splash_title_margin">32dp</dimen>
     <dimen name="splash_wolf_height">380dp</dimen>
+    <dimen name="width_cursor_color">2dp</dimen>
+    <dimen name="size_divider_search">24dp</dimen>
+    <dimen name="width_fragment_search_image_button">40dp</dimen>
+    <dimen name="height_fragment_search_image_button">32dp</dimen>
+    <dimen name="margin_start_fragment_search_image_button">20dp</dimen>
+    <dimen name="margin_top_fragment_image_button">50dp</dimen>
+    <dimen name="margin_start_fragment_search_edit_text">24dp</dimen>
+    <dimen name="margin_end_fragment_search_edit_text">40dp</dimen>
+    <dimen name="margin_top_fragment_search_layout">40dp</dimen>
+    <dimen name="margin_top_fragment_search_results">20dp</dimen>
+    <dimen name="margin_top_fragment_search_recycler">80dp</dimen>
+    <dimen name="margin_bottom_fragment_search_recycler">120dp</dimen>
+    <dimen name="padding_start_fragment_search_recycler">24dp</dimen>
+    <dimen name="radius_rounded_corner_card_view">32dp</dimen>
+    <dimen name="height_grid_view_item_layout">240dp</dimen>
+    <dimen name="width_grid_view_item_layout">192dp</dimen>
+    <dimen name="size_grid_view_item_circle_image">100dp</dimen>
+    <dimen name="margin_top_grid_view_item_circle_image">20dp</dimen>
+    <dimen name="margin_top_grid_view_item_text">120dp</dimen>
+    <dimen name="padding_top_grid_view_item_text">18dp</dimen>
 </resources>

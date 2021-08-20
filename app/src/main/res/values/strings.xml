@@ -9,4 +9,9 @@
     <string name="profile_title">Profile</string>
     <string name="category">Category</string>
     <string name="meal_name">Veggie tomato mix</string>
+    <string name="found_results_text">Found x results</string>
+    <plurals name="meals">
+        <item quantity="one">Found %d result</item>
+        <item quantity="other">Found %d results</item>
+    </plurals>
 </resources>
