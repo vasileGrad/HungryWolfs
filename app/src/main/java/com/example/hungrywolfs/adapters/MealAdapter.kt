@@ -15,7 +15,6 @@ import com.example.hungrywolfs.network.MealInfo
 class MealAdapter(private val clickListener: (idMealParam: String) -> Unit) :
     RecyclerView.Adapter<MealAdapter.MealViewHolder>() {
     private val meals: MutableList<MealInfo> = mutableListOf()
-    private lateinit var idMealResult: String
 
     class MealViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val mealName: TextView = view.findViewById(R.id.meal_name)
@@ -41,8 +40,7 @@ class MealAdapter(private val clickListener: (idMealParam: String) -> Unit) :
             }
         }
         holder.mealConstraintLayout.setOnClickListener {
-            idMealResult = meals[position].idMeal
-            clickListener(idMealResult)
+            clickListener(meals[position].idMeal)
         }
     }
 
