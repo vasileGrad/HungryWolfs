@@ -12,14 +12,14 @@
         android:background="@drawable/round_corners_tag_view"
         android:fontFamily="@font/sf_pro_text"
         android:gravity="center"
-        android:paddingStart="12dp"
-        android:paddingTop="8dp"
-        android:paddingEnd="12dp"
-        android:paddingBottom="8sp"
+        android:paddingStart="@dimen/margin_meal_tag_item_view_text"
+        android:paddingTop="@dimen/margin_top_bottom_meal_tag_item_text"
+        android:paddingEnd="@dimen/margin_meal_tag_item_view_text"
+        android:paddingBottom="@dimen/margin_top_bottom_meal_tag_item_text"
         android:textColor="@color/orange"
-        android:textSize="16sp"
+        android:textSize="@dimen/textsize_meal_tag_item_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="casserole" />
+        tools:text="@string/meal_tag_item_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

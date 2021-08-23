@@ -1,6 +1,5 @@
 package com.example.hungrywolfs.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +11,7 @@ import com.example.hungrywolfs.network.MealDetailsInfo
 class DetailsAdapter :
     RecyclerView.Adapter<DetailsAdapter.DetailsViewHolder>() {
     private val mealDetails: MutableList<MealDetailsInfo> = mutableListOf()
+    private val mealTags: MutableList<String?> = mutableListOf()
 
     class DetailsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val mealTag: TextView = view.findViewById(R.id.meal_tag)
@@ -25,18 +25,22 @@ class DetailsAdapter :
     }
 
     override fun onBindViewHolder(holder: DetailsViewHolder, position: Int) {
-        holder.mealTag.text = mealDetails[position].strTags
-
-        Log.d("DetailsAdapter", "strTags: ${mealDetails[position].strTags}")
+        if (mealTags.size > 0) holder.mealTag.text = mealTags[position]
     }
 
     override fun getItemCount(): Int {
-        return mealDetails.size
+        return mealTags.size
     }
 
     fun setMealDetails(mealDetails: List<MealDetailsInfo>) {
         this.mealDetails.clear()
         this.mealDetails.addAll(mealDetails)
+        notifyDataSetChanged()
+    }
+
+    fun setMealTags(mealTags: List<String>) {
+        this.mealTags.clear()
+        this.mealTags.addAll(mealTags)
         notifyDataSetChanged()
     }
 }

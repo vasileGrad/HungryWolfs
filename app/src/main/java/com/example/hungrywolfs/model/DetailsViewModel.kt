@@ -1,10 +1,13 @@
 package com.example.hungrywolfs.model
 
 import android.util.Log
+import android.view.View
+import android.widget.ImageButton
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.hungrywolfs.R
 import com.example.hungrywolfs.SingleLiveEvent
 import com.example.hungrywolfs.network.MealApi
 import com.example.hungrywolfs.network.MealDetail
@@ -15,22 +18,13 @@ class DetailsViewModel : ViewModel() {
     private val _navigationToHome = SingleLiveEvent<Any>()
     val navigationToHome = _navigationToHome
 
-    private val _navigationToFavorites = SingleLiveEvent<Any>()
-    val navigationToFavorites = _navigationToFavorites
-
     private val _mealDetails = MutableLiveData<MealDetail>()
     val mealDetails: LiveData<MealDetail> = _mealDetails
 
     private val _mealTags = MutableLiveData<List<String>>()
     val mealTags: LiveData<List<String>> = _mealTags
 
-    fun goToHomeFragment() {
-        navigationToHome.call()
-    }
-
-    fun goToFavoritesFragment() {
-        navigationToFavorites.call()
-    }
+    private var isActiveFavoritesIcon = false
 
     fun getMealWithDetails(idMeal: String) {
         viewModelScope.launch {
@@ -43,7 +37,21 @@ class DetailsViewModel : ViewModel() {
         }
     }
 
+    fun goToHomeFragment() {
+        navigationToHome.call()
+    }
+
     fun splitTagMeals(tagString: String?) {
         _mealTags.value = tagString?.split(",")
+    }
+
+    fun addToMealFavorites(view: View) {
+        val iconFavorites: ImageButton = view.findViewById(R.id.icon_favorites)
+        if (!isActiveFavoritesIcon) {
+            iconFavorites.setImageResource(R.drawable.ic_favorites_active)
+        } else {
+            iconFavorites.setImageResource(R.drawable.ic_favorites_inactive)
+        }
+        isActiveFavoritesIcon = !isActiveFavoritesIcon
     }
 }

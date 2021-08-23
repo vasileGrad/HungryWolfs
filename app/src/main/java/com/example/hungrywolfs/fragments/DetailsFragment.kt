@@ -20,7 +20,6 @@ class DetailsFragment : Fragment() {
     private val viewModel: DetailsViewModel by viewModels()
     private lateinit var binding: FragmentDetailsBinding
     private val detailsAdapter = DetailsAdapter()
-    private lateinit var idMeal: String
     private val args: DetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
@@ -36,15 +35,12 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.recyclerViewDetailsTags.adapter = detailsAdapter
-
         val divider = DividerItemDecoration(requireContext(), RecyclerView.HORIZONTAL)
         ContextCompat.getDrawable(requireContext(), R.drawable.divider_details_tag)
             ?.let { divider.setDrawable(it) }
         binding.recyclerViewDetailsTags.addItemDecoration(divider)
-
-        idMeal = args.idMeal
-        viewModel.getMealWithDetails(idMeal)
+        binding.recyclerViewDetailsTags.adapter = detailsAdapter
+        viewModel.getMealWithDetails(args.idMeal)
         setupObservers()
     }
 
@@ -52,9 +48,9 @@ class DetailsFragment : Fragment() {
         viewModel.navigationToHome.observe(viewLifecycleOwner) {
             findNavController().popBackStack()
         }
-        viewModel.navigationToFavorites.observe(viewLifecycleOwner) {
-            findNavController().navigate(R.id.action_detailsFragment_to_favoritesFragment)
+        viewModel.mealDetails.observe(viewLifecycleOwner) {
+            detailsAdapter.setMealDetails(it.meals)
         }
-        viewModel.mealDetails.observe(viewLifecycleOwner) { detailsAdapter.setMealDetails(it.meals) }
+        viewModel.mealTags.observe(viewLifecycleOwner) { detailsAdapter.setMealTags(it) }
     }
 }

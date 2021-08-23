@@ -7,11 +7,11 @@ import com.example.hungrywolfs.network.MealApi
 import com.example.hungrywolfs.network.MealInfo
 import kotlinx.coroutines.delay
 
-private const val SEARCH_DEBOUNCE = 500L
+private const val SEARCH_DEBOUNCE = 300L
 
 class SearchViewModel : ViewModel() {
 
-    val query = MutableLiveData<String>("")
+    val query = MutableLiveData("")
 
     private val _navigationToHome = SingleLiveEvent<Any>()
     val navigationToHome = _navigationToHome
@@ -28,10 +28,6 @@ class SearchViewModel : ViewModel() {
                 emit(listOf<MealInfo>())
             }
         }
-    }
-
-    fun splitMealTags() {
-
     }
 
     fun goToHomeFragment() {

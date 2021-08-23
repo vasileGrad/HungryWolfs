@@ -15,14 +15,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_gray"
-        android:paddingStart="32dp"
-        android:paddingEnd="32dp"
-        android:paddingBottom="12dp">
+        android:paddingBottom="@dimen/padding_bottom_fragment_details_layout">
 
         <ImageButton
             android:id="@+id/icon_back"
             android:layout_width="@dimen/width_fragment_search_image_button"
             android:layout_height="@dimen/height_fragment_search_image_button"
+            android:layout_marginStart="@dimen/margin_start_fragment_details_icon_back"
             android:layout_marginTop="@dimen/margin_top_fragment_image_button"
             android:background="@color/white_gray"
             android:onClick="@{() -> viewModel.goToHomeFragment()}"
@@ -35,9 +34,10 @@
             android:layout_width="@dimen/width_fragment_search_image_button"
             android:layout_height="@dimen/height_fragment_search_image_button"
             android:layout_marginTop="@dimen/margin_top_fragment_image_button"
+            android:layout_marginEnd="@dimen/margin_end_fragment_details_icon_favorites"
             android:background="@color/white_gray"
-            android:onClick="@{() -> viewModel.goToFavoritesFragment()}"
-            android:src="@drawable/ic_favorites_black"
+            android:onClick="@{(view) -> viewModel.addToMealFavorites(view)}"
+            android:src="@drawable/ic_favorites_inactive"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,6 +45,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fillViewport="true"
+            android:paddingStart="@dimen/padding_fragment_details_scroll_view"
+            android:paddingEnd="@dimen/padding_fragment_details_scroll_view"
+            android:scrollbars="none"
             app:layout_constraintTop_toBottomOf="@id/icon_favorites">
 
             <LinearLayout
@@ -54,17 +57,15 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/image_details"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
+                    android:layout_width="@dimen/size_fragment_details_circle_image"
+                    android:layout_height="@dimen/size_fragment_details_circle_image"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="@dimen/margin_top_fragment_details_circle_image"
                     android:background="@android:color/transparent"
                     android:elevation="@dimen/elevation_meal_item_circle_image_view"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHeight_percent="0.25"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="parent"
-                    app:layout_constraintWidth_percent="0.62"
                     app:strMealThumb="@{viewModel.mealDetails.meals.get(0).strMealThumb}"
                     tools:src="@tools:sample/backgrounds/scenic" />
 
@@ -72,7 +73,7 @@
                     android:id="@+id/details_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="@dimen/margin_top_fragment_details_title"
                     android:fontFamily="@font/sf_pro_rounded"
                     android:gravity="center_horizontal"
                     android:text="@{viewModel.mealDetails.meals.get(0).strMeal}"
@@ -87,8 +88,8 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler_view_details_tags"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="14dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_fragment_details_recycler"
                     android:clipToPadding="false"
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -101,7 +102,7 @@
                     android:id="@+id/details_ingredients_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="@dimen/margin_top_fragment_details_ingredients_title"
                     android:fontFamily="@font/sf_pro_rounded"
                     android:gravity="left"
                     android:text="@string/ingredients"
@@ -116,50 +117,56 @@
                 <CheckBox
                     android:id="@+id/details_checkbox_1"
                     android:layout_width="match_parent"
-                    android:layout_height="24dp"
+                    android:layout_height="@dimen/height_fragment_details_checkbox"
+                    android:layout_marginTop="@dimen/margin_top_fragment_details_checkbox"
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="left|center_vertical"
                     android:text="@{viewModel.mealDetails.meals.get(0).strIngredient1}"
                     android:textColor="@color/darker_gray"
                     android:textSize="@dimen/textsize_fragment_details_instructions_title"
+                    app:buttonTint="@color/darker_gray"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/details_ingredients_title"
-                    tools:text="3/4 cup soy sauce " />
+                    tools:text="@string/checkbox_text" />
 
                 <CheckBox
                     android:id="@+id/details_checkbox_2"
                     android:layout_width="match_parent"
-                    android:layout_height="24dp"
+                    android:layout_height="@dimen/height_fragment_details_checkbox"
+                    android:layout_marginTop="@dimen/margin_top_fragment_details_checkbox"
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="left|center_vertical"
                     android:text="@{viewModel.mealDetails.meals.get(0).strIngredient2}"
                     android:textColor="@color/darker_gray"
                     android:textSize="@dimen/textsize_fragment_details_instructions_title"
+                    app:buttonTint="@color/darker_gray"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/details_checkbox_1"
-                    tools:text="3/4 cup soy sauce " />
+                    tools:text="@string/checkbox_text" />
 
                 <CheckBox
                     android:id="@+id/details_checkbox_3"
                     android:layout_width="match_parent"
-                    android:layout_height="24dp"
+                    android:layout_height="@dimen/height_fragment_details_checkbox"
+                    android:layout_marginTop="@dimen/margin_top_fragment_details_checkbox"
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="left|center_vertical"
                     android:text="@{viewModel.mealDetails.meals.get(0).strIngredient3}"
                     android:textColor="@color/darker_gray"
                     android:textSize="@dimen/textsize_fragment_details_instructions_title"
+                    app:buttonTint="@color/darker_gray"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/details_checkbox_2"
-                    tools:text="3/4 cup soy sauce " />
+                    tools:text="@string/checkbox_text" />
 
                 <TextView
                     android:id="@+id/details_instructions_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="@dimen/margin_top_fragment_details_instructions_title"
                     android:fontFamily="@font/sf_pro_rounded"
                     android:gravity="left"
                     android:text="@string/instructions"
@@ -175,7 +182,8 @@
                     android:id="@+id/details_instructions_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="@dimen/margin_top_fragment_details_instructions_text"
+                    android:layout_marginBottom="@dimen/margin_bottom_fragment_details_instructions_text"
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="left"
                     android:text="@{viewModel.mealDetails.meals.get(0).strInstructions}"
@@ -185,7 +193,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/details_instructions_title"
                     tools:listitem="@layout/meal_tag_item_view"
-                    tools:text="Preheat oven to 350. Spray a 9x13-inch backing pan with \n Preheat oven to 350. Spray a 9x13-inch backing pan with non-stick spray.\n\nCombine soy sauce, 1/2 cup water" />
+                    tools:text="@string/text_instructions" />
             </LinearLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

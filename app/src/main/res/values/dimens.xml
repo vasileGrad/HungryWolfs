@@ -8,6 +8,7 @@
     <dimen name="textsize_fragment_details_meal_title">24sp</dimen>
     <dimen name="textsize_fragment_details_ingredients_title">16sp</dimen>
     <dimen name="textsize_fragment_details_instructions_title">16sp</dimen>
+    <dimen name="textsize_meal_tag_item_text">16sp</dimen>
 
     <dimen name="height_category_item_text">3dp</dimen>
     <dimen name="margin_top_category_line">4dp</dimen>
@@ -60,4 +61,22 @@
     <dimen name="margin_top_grid_view_item_text">120dp</dimen>
     <dimen name="padding_top_grid_view_item_text">18dp</dimen>
     <dimen name="size_divider_details_tag">12dp</dimen>
+    <dimen name="padding_bottom_fragment_details_layout">12dp</dimen>
+    <dimen name="margin_start_fragment_details_icon_back">20dp</dimen>
+    <dimen name="margin_end_fragment_details_icon_favorites">20dp</dimen>
+    <dimen name="padding_fragment_details_scroll_view">32dp</dimen>
+    <dimen name="size_fragment_details_circle_image">180dp</dimen>
+    <dimen name="margin_top_fragment_details_circle_image">14dp</dimen>
+    <dimen name="margin_top_fragment_details_title">40dp</dimen>
+    <dimen name="margin_top_fragment_details_recycler">14dp</dimen>
+    <dimen name="margin_top_fragment_details_ingredients_title">14dp</dimen>
+    <dimen name="height_fragment_details_checkbox">24dp</dimen>
+    <dimen name="margin_top_fragment_details_checkbox">8dp</dimen>
+    <dimen name="margin_top_fragment_details_instructions_title">14dp</dimen>
+    <dimen name="margin_top_fragment_details_instructions_text">8dp</dimen>
+    <dimen name="margin_bottom_fragment_details_instructions_text">88dp</dimen>
+    <dimen name="margin_meal_tag_item_view_text">12dp</dimen>
+    <dimen name="margin_top_bottom_meal_tag_item_text">8dp</dimen>
+    <dimen name="width_round_corners_tag_view">2dp</dimen>
+    <dimen name="radius_round_corners_tag_view">20dp</dimen>
 </resources>
