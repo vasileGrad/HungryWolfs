@@ -38,7 +38,8 @@
             android:background="@color/white_gray"
             android:src="@{viewModel.mealDetails.isFavorite ? @drawable/ic_favorites_active : @drawable/ic_favorites_inactive}"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_favorites_inactive" />
 
         <ScrollView
             android:layout_width="match_parent"
