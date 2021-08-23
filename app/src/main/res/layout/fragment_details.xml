@@ -36,8 +36,7 @@
             android:layout_marginTop="@dimen/margin_top_fragment_image_button"
             android:layout_marginEnd="@dimen/margin_end_fragment_details_icon_favorites"
             android:background="@color/white_gray"
-            android:onClick="@{(view) -> viewModel.addToMealFavorites(view)}"
-            android:src="@drawable/ic_favorites_inactive"
+            android:src="@{viewModel.mealDetails.isFavorite ? @drawable/ic_favorites_active : @drawable/ic_favorites_inactive}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,7 +65,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="parent"
-                    app:strMealThumb="@{viewModel.mealDetails.meals.get(0).strMealThumb}"
+                    app:strMealThumb="@{viewModel.mealDetails.strMealThumb}"
                     tools:src="@tools:sample/backgrounds/scenic" />
 
                 <TextView
@@ -76,7 +75,7 @@
                     android:layout_marginTop="@dimen/margin_top_fragment_details_title"
                     android:fontFamily="@font/sf_pro_rounded"
                     android:gravity="center_horizontal"
-                    android:text="@{viewModel.mealDetails.meals.get(0).strMeal}"
+                    android:text="@{viewModel.mealDetails.strMeal}"
                     android:textColor="@color/black"
                     android:textSize="@dimen/textsize_fragment_details_meal_title"
                     android:textStyle="bold"
@@ -121,7 +120,7 @@
                     android:layout_marginTop="@dimen/margin_top_fragment_details_checkbox"
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="left|center_vertical"
-                    android:text="@{viewModel.mealDetails.meals.get(0).strIngredient1}"
+                    android:text="@{viewModel.mealDetails.strIngredient1}"
                     android:textColor="@color/darker_gray"
                     android:textSize="@dimen/textsize_fragment_details_instructions_title"
                     app:buttonTint="@color/darker_gray"
@@ -137,7 +136,7 @@
                     android:layout_marginTop="@dimen/margin_top_fragment_details_checkbox"
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="left|center_vertical"
-                    android:text="@{viewModel.mealDetails.meals.get(0).strIngredient2}"
+                    android:text="@{viewModel.mealDetails.strIngredient2}"
                     android:textColor="@color/darker_gray"
                     android:textSize="@dimen/textsize_fragment_details_instructions_title"
                     app:buttonTint="@color/darker_gray"
@@ -153,7 +152,7 @@
                     android:layout_marginTop="@dimen/margin_top_fragment_details_checkbox"
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="left|center_vertical"
-                    android:text="@{viewModel.mealDetails.meals.get(0).strIngredient3}"
+                    android:text="@{viewModel.mealDetails.strIngredient3}"
                     android:textColor="@color/darker_gray"
                     android:textSize="@dimen/textsize_fragment_details_instructions_title"
                     app:buttonTint="@color/darker_gray"
@@ -186,7 +185,7 @@
                     android:layout_marginBottom="@dimen/margin_bottom_fragment_details_instructions_text"
                     android:fontFamily="@font/sf_pro_text"
                     android:gravity="left"
-                    android:text="@{viewModel.mealDetails.meals.get(0).strInstructions}"
+                    android:text="@{viewModel.mealDetails.strInstructions}"
                     android:textColor="@color/darker_gray"
                     android:textSize="@dimen/textsize_fragment_details_instructions_title"
                     app:layout_constraintEnd_toEndOf="parent"

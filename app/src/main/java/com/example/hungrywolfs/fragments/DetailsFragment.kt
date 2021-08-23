@@ -40,6 +40,7 @@ class DetailsFragment : Fragment() {
             ?.let { divider.setDrawable(it) }
         binding.recyclerViewDetailsTags.addItemDecoration(divider)
         binding.recyclerViewDetailsTags.adapter = detailsAdapter
+        binding.iconFavorites.setOnClickListener { onClickIconFavorites() }
         viewModel.getMealWithDetails(args.idMeal)
         setupObservers()
     }
@@ -48,9 +49,10 @@ class DetailsFragment : Fragment() {
         viewModel.navigationToHome.observe(viewLifecycleOwner) {
             findNavController().popBackStack()
         }
-        viewModel.mealDetails.observe(viewLifecycleOwner) {
-            detailsAdapter.setMealDetails(it.meals)
-        }
         viewModel.mealTags.observe(viewLifecycleOwner) { detailsAdapter.setMealTags(it) }
+    }
+
+    private fun onClickIconFavorites() {
+        viewModel.onClickIconFavorites()
     }
 }
