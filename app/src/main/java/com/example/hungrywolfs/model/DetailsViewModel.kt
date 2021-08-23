@@ -38,7 +38,7 @@ class DetailsViewModel : ViewModel() {
         _mealTags.value = tagString?.split(",")
     }
 
-    fun onClickIconFavorites() {
+    fun addToMealFavorites() {
         _mealDetails.value = _mealDetails.value?.apply {
             this.isFavorite = !this.isFavorite
         }

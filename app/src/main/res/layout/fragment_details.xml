@@ -36,6 +36,7 @@
             android:layout_marginTop="@dimen/margin_top_fragment_image_button"
             android:layout_marginEnd="@dimen/margin_end_fragment_details_icon_favorites"
             android:background="@color/white_gray"
+            android:onClick="@{() -> viewModel.addToMealFavorites()}"
             android:src="@{viewModel.mealDetails.isFavorite ? @drawable/ic_favorites_active : @drawable/ic_favorites_inactive}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
