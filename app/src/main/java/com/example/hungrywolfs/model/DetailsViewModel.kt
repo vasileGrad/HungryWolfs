@@ -15,15 +15,15 @@ class DetailsViewModel : ViewModel() {
     private var _mealDetails = MutableLiveData<MealDetailsInfo>()
     val mealDetails: LiveData<MealDetailsInfo> = _mealDetails
 
-    private val _mealTags = MutableLiveData<List<String>>()
-    val mealTags: LiveData<List<String>> = Transformations.map(_mealTags) { it }
+    val mealTags: LiveData<List<String>> = _mealDetails.map {
+        it.strTags?.split(",") ?: listOf()
+    }
 
     fun getMealWithDetails(idMeal: String) {
         viewModelScope.launch {
             try {
                 _mealDetails.value =
                     MealApi.retrofitService.getMealDetails(idMeal).meals.getOrNull(0)
-                splitTagMeals(_mealDetails.value?.strTags)
             } catch (e: Exception) {
                 Log.d("OrderViewModel: ", "Error: $e")
             }
@@ -32,10 +32,6 @@ class DetailsViewModel : ViewModel() {
 
     fun goToHomeFragment() {
         navigationToHome.call()
-    }
-
-    fun splitTagMeals(tagString: String?) {
-        _mealTags.value = tagString?.split(",")
     }
 
     fun addToMealFavorites() {
