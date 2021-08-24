@@ -9,6 +9,11 @@
     <dimen name="textsize_fragment_details_ingredients_title">16sp</dimen>
     <dimen name="textsize_fragment_details_instructions_title">16sp</dimen>
     <dimen name="textsize_meal_tag_item_text">16sp</dimen>
+    <dimen name="textsize_fragment_profile_title">36sp</dimen>
+    <dimen name="textsize_fragment_profile_user_name">20sp</dimen>
+    <dimen name="textsize_fragment_profile_user_email">16sp</dimen>
+    <dimen name="textsize_fragment_profile_user_phone">16sp</dimen>
+    <dimen name="textsize_fragment_profile_favorites_text">20sp</dimen>
 
     <dimen name="height_category_item_text">3dp</dimen>
     <dimen name="margin_top_category_line">4dp</dimen>
@@ -79,4 +84,29 @@
     <dimen name="margin_top_bottom_meal_tag_item_text">8dp</dimen>
     <dimen name="width_round_corners_tag_view">2dp</dimen>
     <dimen name="radius_round_corners_tag_view">20dp</dimen>
+    <dimen name="radius_round_corners_user_profile">20dp</dimen>
+    <dimen name="radius_round_corners_user_profile_photo">16dp</dimen>
+    <dimen name="padding_fragment_profile_constraint_layout">32dp</dimen>
+    <dimen name="padding_end_fragment_profile_ic_back">32dp</dimen>
+    <dimen name="margin_top_fragment_profile_title">32dp</dimen>
+    <dimen name="margin_top_fragment_profile_user_constraint_layout">36dp</dimen>
+    <dimen name="padding_h_fragment_profile_user_constraint_layout">16dp</dimen>
+    <dimen name="padding_v_fragment_profile_user_constraint_layout">20dp</dimen>
+    <dimen name="width_fragment_profile_user_image">80dp</dimen>
+    <dimen name="height_fragment_profile_user_image">88dp</dimen>
+    <dimen name="margin_end_fragment_profile_user_image">20dp</dimen>
+    <dimen name="margin_h_fragment_profile_user_name">16dp</dimen>
+    <dimen name="margin_h_fragment_profile_user_email">16dp</dimen>
+    <dimen name="margin_top_fragment_profile_user_email">4dp</dimen>
+    <dimen name="max_width_fragment_profile_user_email">164dp</dimen>
+    <dimen name="width_fragment_profile_line">160dp</dimen>
+    <dimen name="height_fragment_profile_line">1dp</dimen>
+    <dimen name="margin_top_fragment_profile_line">4dp</dimen>
+    <dimen name="margin_end_fragment_profile_line">24dp</dimen>
+    <dimen name="margin_start_fragment_profile_user_phone">16dp</dimen>
+    <dimen name="margin_top_fragment_profile_user_phone">4dp</dimen>
+    <dimen name="margin_top_fragment_profile_constraint_layout_small">32dp</dimen>
+    <dimen name="padding_fragment_profile_constraint_layout_small">16dp</dimen>
+    <dimen name="padding_start_fragment_profile_constraint_layout_small">24dp</dimen>
+    <dimen name="elevation_fragment_profile_constraint_layout">4dp</dimen>
 </resources>

@@ -4,8 +4,8 @@
     <string name="search">Search</string>
     <string name="category_title">Categories</string>
     <string name="home_title">Home</string>
-    <string name="favorites_title">Favorites</string>
-    <string name="profile_title">Profile</string>
+    <string name="favorites_title">Favourites</string>
+    <string name="profile_title">My profile</string>
     <string name="category">Category</string>
     <string name="meal_name">Veggie tomato mix</string>
     <string name="found_results_text">Found x results</string>
@@ -17,6 +17,10 @@
     <string name="checkbox_text">3/4 cup soy sauce</string>
     <string name="text_instructions">Preheat oven to 350. Spray a 9x13-inch backing pan with \n Preheat oven to 350. Spray a 9x13-inch backing pan with non-stick spray.\n\nCombine soy sauce, 1/2 cup water</string>
     <string name="meal_tag_item_text">casserole</string>
+    <string name="user_name">Grad Vasile</string>
+    <string name="user_email">vasile.grad2@gmail.com</string>
+    <string name="user_phone">+40 123 456 789</string>
+    <string name="terms_and_conditions">Terms and conditions</string>
     <plurals name="meals">
         <item quantity="one">Found %d result</item>
         <item quantity="other">Found %d results</item>
