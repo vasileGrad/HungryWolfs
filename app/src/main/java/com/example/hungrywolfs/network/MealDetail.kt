@@ -11,4 +11,5 @@ data class MealDetailsInfo(
     val strIngredient1: String?,
     val strIngredient2: String?,
     val strIngredient3: String?,
+    var isFavorite: Boolean = false,
 )

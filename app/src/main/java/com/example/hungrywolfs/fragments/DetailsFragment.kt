@@ -48,9 +48,6 @@ class DetailsFragment : Fragment() {
         viewModel.navigationToHome.observe(viewLifecycleOwner) {
             findNavController().popBackStack()
         }
-        viewModel.mealDetails.observe(viewLifecycleOwner) {
-            detailsAdapter.setMealDetails(it.meals)
-        }
         viewModel.mealTags.observe(viewLifecycleOwner) { detailsAdapter.setMealTags(it) }
     }
 }

@@ -6,11 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hungrywolfs.R
-import com.example.hungrywolfs.network.MealDetailsInfo
 
 class DetailsAdapter :
     RecyclerView.Adapter<DetailsAdapter.DetailsViewHolder>() {
-    private val mealDetails: MutableList<MealDetailsInfo> = mutableListOf()
     private val mealTags: MutableList<String?> = mutableListOf()
 
     class DetailsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -25,17 +23,11 @@ class DetailsAdapter :
     }
 
     override fun onBindViewHolder(holder: DetailsViewHolder, position: Int) {
-        if (mealTags.size > 0) holder.mealTag.text = mealTags[position]
+        holder.mealTag.text = mealTags[position]
     }
 
     override fun getItemCount(): Int {
         return mealTags.size
-    }
-
-    fun setMealDetails(mealDetails: List<MealDetailsInfo>) {
-        this.mealDetails.clear()
-        this.mealDetails.addAll(mealDetails)
-        notifyDataSetChanged()
     }
 
     fun setMealTags(mealTags: List<String>) {
