@@ -23,4 +23,9 @@ class FavoritesViewModel : ViewModel() {
             }
         }
     }
+
+    fun getFavorites() {
+        _favoriteMeals.value = Hawk.get<MutableList<MealDetailsInfo>>("favorites")
+    }
+
 }

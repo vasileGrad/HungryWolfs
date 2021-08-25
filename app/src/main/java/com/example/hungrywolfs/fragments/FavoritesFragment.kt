@@ -51,6 +51,11 @@ class FavoritesFragment : Fragment() {
         setupObservers()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getFavorites()
+    }
+
     private fun setupObservers() {
         viewModel.favoriteMeals.observe(viewLifecycleOwner) {
             favoritesAdapter.setFavoriteMeals(it)
