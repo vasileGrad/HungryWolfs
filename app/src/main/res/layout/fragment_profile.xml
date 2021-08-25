@@ -198,7 +198,7 @@
                 android:fontFamily="@font/sf_pro_text"
                 android:text="@string/terms_and_conditions"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="@dimen/textsize_fragment_profile_terms_text"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

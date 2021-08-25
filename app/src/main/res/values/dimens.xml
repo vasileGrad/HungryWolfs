@@ -14,6 +14,7 @@
     <dimen name="textsize_fragment_profile_user_email">16sp</dimen>
     <dimen name="textsize_fragment_profile_user_phone">16sp</dimen>
     <dimen name="textsize_fragment_profile_favorites_text">20sp</dimen>
+    <dimen name="textsize_fragment_profile_terms_text">20sp</dimen>
 
     <dimen name="height_category_item_text">3dp</dimen>
     <dimen name="margin_top_category_line">4dp</dimen>
