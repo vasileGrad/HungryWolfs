@@ -2,6 +2,7 @@ package com.example.hungrywolfs.model
 
 import android.util.Log
 import androidx.lifecycle.*
+import com.example.hungrywolfs.Constants
 import com.example.hungrywolfs.SingleLiveEvent
 import com.example.hungrywolfs.network.MealApi
 import com.example.hungrywolfs.network.MealDetailsInfo
@@ -16,7 +17,7 @@ class DetailsViewModel : ViewModel() {
     private var _mealDetails = MutableLiveData<MealDetailsInfo>()
     val mealDetails: LiveData<MealDetailsInfo> = _mealDetails
 
-    private var _favoriteMeals = MutableLiveData<MutableList<MealDetailsInfo>>()
+    private var _favoriteMeals = mutableListOf<MealDetailsInfo>()
 
     val mealTags: LiveData<List<String>> = _mealDetails.map {
         it.strTags?.split(",") ?: listOf()
@@ -25,7 +26,7 @@ class DetailsViewModel : ViewModel() {
     val isFavorite = MutableLiveData(false)
 
     init {
-        _favoriteMeals.value = Hawk.get<MutableList<MealDetailsInfo>>("favorites")
+        _favoriteMeals = Hawk.get(Constants.FAVORITES)
     }
 
     fun getMealWithDetails(idMeal: String) {
@@ -33,7 +34,7 @@ class DetailsViewModel : ViewModel() {
             try {
                 _mealDetails.value =
                     MealApi.retrofitService.getMealDetails(idMeal).meals.getOrNull(0)
-                    isFavorite.value = _favoriteMeals.value?.contains(_mealDetails.value)
+                isFavorite.value = _favoriteMeals.contains(_mealDetails.value)
             } catch (e: Exception) {
                 Log.d("DetailsViewModel: ", "Error: $e")
             }
@@ -45,15 +46,15 @@ class DetailsViewModel : ViewModel() {
     }
 
     fun addToMealFavorites() {
-        _favoriteMeals.value =
-            Hawk.get<MutableList<MealDetailsInfo>>("favorites") ?: mutableListOf()
-        if (_favoriteMeals.value?.contains(_mealDetails.value) == false) {
+        _favoriteMeals =
+            Hawk.get<MutableList<MealDetailsInfo>>(Constants.FAVORITES) ?: mutableListOf()
+        if (!_favoriteMeals.contains(_mealDetails.value)) {
             _mealDetails.value?.let {
-                _favoriteMeals.value?.add(it)
+                _favoriteMeals.add(it)
             }
         } else {
-            _favoriteMeals.value?.remove(_mealDetails.value)
+            _favoriteMeals.remove(_mealDetails.value)
         }
-        Hawk.put<MutableList<MealDetailsInfo>>("favorites", _favoriteMeals.value)
+        Hawk.put(Constants.FAVORITES, _favoriteMeals)
     }
 }
