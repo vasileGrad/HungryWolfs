@@ -22,7 +22,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val categoryAdapter =
         CategoryAdapter { category -> viewModel.getSelectedMeals(category) }
-    private val mealAdapter = MealAdapter()
+    private val mealAdapter = MealAdapter { idMeal -> navigateToDetails(idMeal) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        viewModel.navigateToSearch.observe(viewLifecycleOwner) {
+        viewModel.navigationToSearch.observe(viewLifecycleOwner) {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
         viewModel.foodCategories.observe(viewLifecycleOwner) { categoryAdapter.setCategories(it.categories) }
@@ -55,5 +55,9 @@ class HomeFragment : Fragment() {
             mealAdapter.setMeals(it.meals)
             binding.recyclerViewMeals.scrollToPosition(0)
         }
+    }
+
+    private fun navigateToDetails(idMeal: String) {
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailsFragment(idMeal))
     }
 }

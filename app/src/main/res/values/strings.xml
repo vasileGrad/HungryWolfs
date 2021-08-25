@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">HungryWolfs</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home_screen_title">Delicious food for you</string>
     <string name="search">Search</string>
     <string name="category_title">Categories</string>
@@ -10,6 +9,14 @@
     <string name="category">Category</string>
     <string name="meal_name">Veggie tomato mix</string>
     <string name="found_results_text">Found x results</string>
+    <string name="details">Details</string>
+    <string name="details_meal_title">Veggie tomato mix</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="instructions">Instructions</string>
+    <string name="tag_meat">meat</string>
+    <string name="checkbox_text">3/4 cup soy sauce</string>
+    <string name="text_instructions">Preheat oven to 350. Spray a 9x13-inch backing pan with \n Preheat oven to 350. Spray a 9x13-inch backing pan with non-stick spray.\n\nCombine soy sauce, 1/2 cup water</string>
+    <string name="meal_tag_item_text">casserole</string>
     <plurals name="meals">
         <item quantity="one">Found %d result</item>
         <item quantity="other">Found %d results</item>

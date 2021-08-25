@@ -11,6 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/grid_view_constraint_layout"
         android:layout_width="@dimen/width_grid_view_item_layout"
         android:layout_height="@dimen/height_grid_view_item_layout">
 

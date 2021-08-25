@@ -21,6 +21,7 @@ class SearchFragment : Fragment() {
 
     private val viewModel: SearchViewModel by viewModels()
     private lateinit var binding: FragmentSearchBinding
+    private val mealGridAdapter = MealGridAdapter { idMeal -> navigateToDetails(idMeal) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,7 +31,6 @@ class SearchFragment : Fragment() {
         binding = FragmentSearchBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-        binding.recyclerViewSearchMeals.adapter = MealGridAdapter()
         return binding.root
     }
 
@@ -47,7 +47,7 @@ class SearchFragment : Fragment() {
         ContextCompat.getDrawable(requireContext(), R.drawable.divider_search)
             ?.let { dividerSearchVertical.setDrawable(it) }
         binding.recyclerViewSearchMeals.addItemDecoration(dividerSearchVertical)
-
+        binding.recyclerViewSearchMeals.adapter = mealGridAdapter
         binding.searchMeals.isFocusableInTouchMode
         binding.searchMeals.isFocusable
         binding.searchMeals.requestFocus()
@@ -74,8 +74,13 @@ class SearchFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        viewModel.navigateToHome.observe(viewLifecycleOwner) {
+        viewModel.navigationToHome.observe(viewLifecycleOwner) {
             findNavController().popBackStack()
         }
+    }
+
+    private fun navigateToDetails(idMeal: String) {
+        findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToDetailsFragment(
+            idMeal))
     }
 }

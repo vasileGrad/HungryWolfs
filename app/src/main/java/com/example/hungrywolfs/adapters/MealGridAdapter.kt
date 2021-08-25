@@ -2,18 +2,20 @@ package com.example.hungrywolfs.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hungrywolfs.databinding.GridViewItemBinding
 import com.example.hungrywolfs.network.MealInfo
 
-class MealGridAdapter :
+class MealGridAdapter(private val clickListener: (idMealParam: String) -> Unit) :
     ListAdapter<MealInfo, MealGridAdapter.MealGridViewHolder>(DiffCallback) {
 
     class MealGridViewHolder(
         private var binding: GridViewItemBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
+        val mealConstraintLayout: ConstraintLayout = binding.gridViewConstraintLayout
         fun bind(mealInfo: MealInfo) {
             binding.mealInfo = mealInfo
             binding.executePendingBindings()
@@ -38,5 +40,8 @@ class MealGridAdapter :
 
     override fun onBindViewHolder(holder: MealGridViewHolder, position: Int) {
         holder.bind(getItem(position))
+        holder.mealConstraintLayout.setOnClickListener {
+            clickListener(currentList[position].idMeal)
+        }
     }
 }

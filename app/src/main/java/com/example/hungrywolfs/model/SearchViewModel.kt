@@ -7,14 +7,14 @@ import com.example.hungrywolfs.network.MealApi
 import com.example.hungrywolfs.network.MealInfo
 import kotlinx.coroutines.delay
 
-private const val SEARCH_DEBOUNCE = 500L
+private const val SEARCH_DEBOUNCE = 300L
 
 class SearchViewModel : ViewModel() {
 
-    val query = MutableLiveData<String>()
+    val query = MutableLiveData("")
 
-    private val _navigateToHome = SingleLiveEvent<Any>()
-    val navigateToHome = _navigateToHome
+    private val _navigationToHome = SingleLiveEvent<Any>()
+    val navigationToHome = _navigationToHome
 
     // Gabi provided this code
     val searchedMeals: LiveData<List<MealInfo>> = query.switchMap {
@@ -31,6 +31,6 @@ class SearchViewModel : ViewModel() {
     }
 
     fun goToHomeFragment() {
-        _navigateToHome.call()
+        _navigationToHome.call()
     }
 }
