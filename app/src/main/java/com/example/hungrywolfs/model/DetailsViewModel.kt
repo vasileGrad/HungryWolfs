@@ -18,8 +18,9 @@ class DetailsViewModel : ViewModel() {
 
     private var _favoriteMeals = MutableLiveData<MutableList<MealDetailsInfo>>()
 
-    private val _mealTags = MutableLiveData<List<String>>()
-    val mealTags: LiveData<List<String>> = Transformations.map(_mealTags) { it }
+    val mealTags: LiveData<List<String>> = _mealDetails.map {
+        it.strTags?.split(",") ?: listOf()
+    }
 
     val isFavorite = MutableLiveData(false)
 
@@ -32,7 +33,6 @@ class DetailsViewModel : ViewModel() {
             try {
                 _mealDetails.value =
                     MealApi.retrofitService.getMealDetails(idMeal).meals.getOrNull(0)
-                splitTagMeals(_mealDetails.value?.strTags)
                 if (_favoriteMeals.value?.contains(_mealDetails.value) == true) {
                     isFavorite.value = true
                 }
@@ -44,10 +44,6 @@ class DetailsViewModel : ViewModel() {
 
     fun goToHomeFragment() {
         navigationToHome.call()
-    }
-
-    fun splitTagMeals(tagString: String?) {
-        _mealTags.value = tagString?.split(",")
     }
 
     fun addToMealFavorites() {

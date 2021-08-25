@@ -17,6 +17,7 @@
     <dimen name="textsize_fragment_favorites_title">24sp</dimen>
     <dimen name="textsize_fragment_favorites_press_long_text">12sp</dimen>
     <dimen name="textsize_favorite_item_view_text">20sp</dimen>
+    <dimen name="textsize_fragment_profile_terms_text">20sp</dimen>
 
     <dimen name="height_category_item_text">3dp</dimen>
     <dimen name="margin_top_category_line">4dp</dimen>
