@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/whiter_gray" />
+    <corners
+        android:bottomLeftRadius="@dimen/radius_round_corners_user_profile_photo"
+        android:bottomRightRadius="@dimen/radius_round_corners_user_profile_photo"
+        android:topLeftRadius="@dimen/radius_round_corners_user_profile_photo"
+        android:topRightRadius="@dimen/radius_round_corners_user_profile_photo" />
+</shape>

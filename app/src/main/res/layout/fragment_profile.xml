@@ -1,19 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context="fragments.ProfileFragment">
 
-    <TextView
-        android:id="@+id/profile_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/profile_title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <variable
+            name="viewModel"
+            type="com.example.hungrywolfs.model.ProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_gray"
+        android:paddingStart="@dimen/padding_fragment_profile_constraint_layout"
+        android:paddingEnd="@dimen/padding_fragment_profile_constraint_layout">
+
+        <ImageButton
+            android:id="@+id/icon_back"
+            android:layout_width="@dimen/width_fragment_search_image_button"
+            android:layout_height="@dimen/height_fragment_search_image_button"
+            android:layout_marginTop="@dimen/margin_top_fragment_image_button"
+            android:background="@color/white_gray"
+            android:onClick="@{() -> viewModel.goToHomeFragment()}"
+            android:paddingEnd="@dimen/padding_end_fragment_profile_ic_back"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/profile_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_fragment_profile_title"
+            android:fontFamily="@font/sf_pro_text"
+            android:text="@string/profile_title"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize_fragment_profile_title"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon_back" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/user_details_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_fragment_profile_user_constraint_layout"
+            android:background="@drawable/round_corners_user_profile"
+            android:backgroundTint="@color/white"
+            android:clipToPadding="false"
+            android:elevation="@dimen/elevation_fragment_profile_constraint_layout"
+            android:paddingHorizontal="@dimen/padding_h_fragment_profile_user_constraint_layout"
+            android:paddingVertical="@dimen/padding_v_fragment_profile_user_constraint_layout"
+            app:cardCornerRadius="@dimen/card_corner_radius_card_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_title">
+
+            <ImageView
+                android:id="@+id/user_image"
+                android:layout_width="@dimen/width_fragment_profile_user_image"
+                android:layout_height="@dimen/height_fragment_profile_user_image"
+                android:layout_marginEnd="@dimen/margin_end_fragment_profile_user_image"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_wolfpack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_h_fragment_profile_user_name"
+                android:fontFamily="@font/sf_pro_text"
+                android:gravity="start"
+                android:text="@{viewModel.user.name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_fragment_profile_user_name"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/user_image"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/user_name" />
+
+            <TextView
+                android:id="@+id/user_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_h_fragment_profile_user_email"
+                android:layout_marginTop="@dimen/margin_top_fragment_profile_user_email"
+                android:ellipsize="end"
+                android:fontFamily="@font/sf_pro_text"
+                android:maxWidth="@dimen/max_width_fragment_profile_user_email"
+                android:maxLines="1"
+                android:text="@{viewModel.user.email}"
+                android:textColor="@color/darker_gray"
+                android:textSize="@dimen/textsize_fragment_profile_user_email"
+                app:layout_constraintStart_toEndOf="@id/user_image"
+                app:layout_constraintTop_toBottomOf="@id/user_name"
+                tools:text="@string/user_email" />
+
+            <View
+                android:id="@+id/profile_line"
+                android:layout_width="@dimen/width_fragment_profile_line"
+                android:layout_height="@dimen/height_fragment_profile_line"
+                android:layout_marginTop="@dimen/margin_top_fragment_profile_line"
+                android:layout_marginEnd="@dimen/margin_end_fragment_profile_line"
+                android:background="@color/darker_gray"
+                app:layout_constraintStart_toEndOf="@id/user_image"
+                app:layout_constraintStart_toStartOf="@id/user_email"
+                app:layout_constraintTop_toBottomOf="@id/user_email" />
+
+            <TextView
+                android:id="@+id/user_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_start_fragment_profile_user_phone"
+                android:layout_marginTop="@dimen/margin_top_fragment_profile_user_phone"
+                android:ellipsize="end"
+                android:fontFamily="@font/sf_pro_text"
+                android:gravity="left"
+                android:maxLines="1"
+                android:text="@{viewModel.user.phone}"
+                android:textColor="@color/darker_gray"
+                android:textSize="@dimen/textsize_fragment_profile_user_phone"
+                app:layout_constraintStart_toEndOf="@id/user_image"
+                app:layout_constraintTop_toBottomOf="@id/profile_line"
+                tools:text="@string/user_phone" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/favorites_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_fragment_profile_constraint_layout_small"
+            android:background="@drawable/round_corners_user_profile"
+            android:backgroundTint="@color/white"
+            android:clipToPadding="false"
+            android:elevation="@dimen/elevation_fragment_profile_constraint_layout"
+            android:paddingVertical="@dimen/padding_fragment_profile_constraint_layout_small"
+            android:paddingStart="@dimen/padding_start_fragment_profile_constraint_layout_small"
+            android:paddingEnd="@dimen/padding_fragment_profile_constraint_layout_small"
+            app:cardCornerRadius="@dimen/card_corner_radius_card_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/user_details_constraint_layout">
+
+            <TextView
+                android:id="@+id/favorites_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_text"
+                android:text="@string/favorites_title"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_fragment_profile_favorites_text"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/favorites_title" />
+
+            <ImageButton
+                android:id="@+id/favorites_icon_back_right"
+                android:layout_width="@dimen/width_fragment_search_image_button"
+                android:layout_height="@dimen/height_fragment_search_image_button"
+                android:background="@color/white"
+                android:onClick="@{() -> viewModel.goToFavoritesFragment()}"
+                android:src="@drawable/ic_back_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/terms_and_conditions_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_fragment_profile_constraint_layout_small"
+            android:background="@drawable/round_corners_user_profile"
+            android:backgroundTint="@color/white"
+            android:clipToPadding="false"
+            android:elevation="@dimen/elevation_fragment_profile_constraint_layout"
+            android:paddingVertical="@dimen/padding_fragment_profile_constraint_layout_small"
+            android:paddingStart="@dimen/padding_start_fragment_profile_constraint_layout_small"
+            android:paddingEnd="@dimen/padding_fragment_profile_constraint_layout_small"
+            app:cardCornerRadius="@dimen/card_corner_radius_card_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/favorites_constraint_layout">
+
+            <TextView
+                android:id="@+id/terms_and_conditions_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_text"
+                android:text="@string/terms_and_conditions"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_fragment_profile_terms_text"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/terms_and_conditions" />
+
+            <ImageButton
+                android:id="@+id/terms_and_conditions_icon_back_right"
+                android:layout_width="@dimen/width_fragment_search_image_button"
+                android:layout_height="@dimen/height_fragment_search_image_button"
+                android:background="@color/white"
+                android:src="@drawable/ic_back_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
