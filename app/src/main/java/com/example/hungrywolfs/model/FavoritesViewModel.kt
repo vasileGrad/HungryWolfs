@@ -12,7 +12,7 @@ class FavoritesViewModel : ViewModel() {
     val favoriteMeals: LiveData<MutableList<MealDetailsInfo>> = _favoriteMeals
 
     init {
-        _favoriteMeals.value = Hawk.get<MutableList<MealDetailsInfo>>("favorites")
+        getFavorites()
     }
 
     fun removeFavoriteMeal(favoriteMeal: MealDetailsInfo) {
@@ -27,5 +27,4 @@ class FavoritesViewModel : ViewModel() {
     fun getFavorites() {
         _favoriteMeals.value = Hawk.get<MutableList<MealDetailsInfo>>("favorites")
     }
-
 }

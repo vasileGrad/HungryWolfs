@@ -33,9 +33,7 @@ class DetailsViewModel : ViewModel() {
             try {
                 _mealDetails.value =
                     MealApi.retrofitService.getMealDetails(idMeal).meals.getOrNull(0)
-                if (_favoriteMeals.value?.contains(_mealDetails.value) == true) {
-                    isFavorite.value = true
-                }
+                    isFavorite.value = _favoriteMeals.value?.contains(_mealDetails.value)
             } catch (e: Exception) {
                 Log.d("DetailsViewModel: ", "Error: $e")
             }
