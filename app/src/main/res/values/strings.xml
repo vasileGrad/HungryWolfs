@@ -4,7 +4,7 @@
     <string name="search">Search</string>
     <string name="category_title">Categories</string>
     <string name="home_title">Home</string>
-    <string name="favorites_title">Favourites</string>
+    <string name="favorites_title">My favourites</string>
     <string name="profile_title">My profile</string>
     <string name="category">Category</string>
     <string name="meal_name">Veggie tomato mix</string>
@@ -21,6 +21,8 @@
     <string name="user_email">vasile.grad2@gmail.com</string>
     <string name="user_phone">+40 123 456 789</string>
     <string name="terms_and_conditions">Terms and conditions</string>
+    <string name="press_long_text">press long on an item to delete</string>
+    <string name="favorite_item_view_text">Veggie tomato mix</string>
     <plurals name="meals">
         <item quantity="one">Found %d result</item>
         <item quantity="other">Found %d results</item>

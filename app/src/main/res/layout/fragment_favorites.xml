@@ -1,20 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".fragments.FavoritesFragment">
 
-    <TextView
-        android:id="@+id/favorites_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/favorites_title"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <variable
+            name="viewModel"
+            type="com.example.hungrywolfs.model.FavoritesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_gray"
+        android:paddingStart="@dimen/padding_fragment_favorites_constraint_layout"
+        android:paddingEnd="@dimen/padding_fragment_favorites_constraint_layout">
+
+        <TextView
+            android:id="@+id/favorites_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin_top_fragment_favorites_title"
+            android:fontFamily="@font/sf_pro_rounded"
+            android:text="@string/favorites_title"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize_fragment_favorites_title"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/favorites_title" />
+
+        <ImageView
+            android:id="@+id/ic_press_long_favorites"
+            android:layout_width="@dimen/size_fragment_favorites_ic_press_long"
+            android:layout_height="@dimen/size_fragment_favorites_ic_press_long"
+            android:layout_marginStart="@dimen/margin_start_fragment_favorites_ic_press_long"
+            android:layout_marginTop="@dimen/margin_top_fragment_favorites_ic_press_long"
+            android:src="@drawable/ic_press_long"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/favorites_text"
+            tools:src="@drawable/ic_press_long" />
+
+        <TextView
+            android:id="@+id/favorites_long_press_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/margin_start_fragment_favorites_press_long_text"
+            android:fontFamily="@font/sf_pro_text"
+            android:text="@string/press_long_text"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize_fragment_favorites_press_long_text"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/ic_press_long_favorites"
+            app:layout_constraintTop_toBottomOf="@id/ic_press_long_favorites"
+            app:layout_constraintTop_toTopOf="@id/ic_press_long_favorites"
+            tools:text="@string/press_long_text" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_favorites"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_fragment_favorites_recycler"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/margin_bottom_fragment_favorites_recycler"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ic_press_long_favorites"
+            tools:listitem="@layout/favorite_item_view" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

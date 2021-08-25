@@ -27,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/meal_image"
+                android:id="@+id/favorite_meal_image"
                 android:layout_width="@dimen/size_grid_view_item_circle_image"
                 android:layout_height="@dimen/size_grid_view_item_circle_image"
                 android:layout_gravity="center_horizontal"
