@@ -77,6 +77,9 @@ class SearchFragment : Fragment() {
         viewModel.navigationToHome.observe(viewLifecycleOwner) {
             findNavController().popBackStack()
         }
+        viewModel.navigationToInternetFragment.observe(viewLifecycleOwner) {
+            findNavController().navigate(R.id.action_global_internetFragment)
+        }
     }
 
     private fun navigateToDetails(idMeal: String) {

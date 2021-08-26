@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.example.hungrywolfs.Constants
 import com.example.hungrywolfs.SingleLiveEvent
+import com.example.hungrywolfs.network.InternetConnection
 import com.example.hungrywolfs.network.MealApi
 import com.example.hungrywolfs.network.MealDetailsInfo
 import com.orhanobut.hawk.Hawk
@@ -25,6 +26,9 @@ class DetailsViewModel : ViewModel() {
 
     val isFavorite = MutableLiveData(false)
 
+    private val _navigationToInternetFragment = SingleLiveEvent<Any>()
+    val navigationToInternetFragment = _navigationToInternetFragment
+
     init {
         _favoriteMeals = Hawk.get(Constants.FAVORITES)
     }
@@ -36,13 +40,10 @@ class DetailsViewModel : ViewModel() {
                     MealApi.retrofitService.getMealDetails(idMeal).meals.getOrNull(0)
                 isFavorite.value = _favoriteMeals.contains(_mealDetails.value)
             } catch (e: Exception) {
+                checkInternetConnection()
                 Log.d("DetailsViewModel: ", "Error: $e")
             }
         }
-    }
-
-    fun goToHomeFragment() {
-        navigationToHome.call()
     }
 
     fun addToMealFavorites() {
@@ -56,5 +57,19 @@ class DetailsViewModel : ViewModel() {
             _favoriteMeals.remove(_mealDetails.value)
         }
         Hawk.put(Constants.FAVORITES, _favoriteMeals)
+    }
+
+    private fun checkInternetConnection() {
+        if (!InternetConnection.DoesNetworkHaveInternet.execute()) {
+            goToInternetFragment()
+        }
+    }
+
+    fun goToHomeFragment() {
+        _navigationToHome.call()
+    }
+
+    private fun goToInternetFragment() {
+        _navigationToInternetFragment.call()
     }
 }

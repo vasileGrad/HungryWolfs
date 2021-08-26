@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.InternetFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_gray"
+        android:paddingStart="@dimen/padding_fragment_internet_constraint_layout"
+        android:paddingEnd="@dimen/padding_fragment_internet_constraint_layout">
+
+        <ImageView
+            android:id="@+id/internet_connection_image"
+            android:layout_width="@dimen/size_fragment_internet_image_view"
+            android:layout_height="@dimen/size_fragment_internet_image_view"
+            android:layout_marginBottom="@dimen/margin_bottom_fragment_internet_image_view"
+            android:src="@drawable/ic_internet_connection"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_internet_connection" />
+
+        <TextView
+            android:id="@+id/internet_connection_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin_top_fragment_internet_title"
+            android:fontFamily="@font/sf_pro_text"
+            android:gravity="center_horizontal"
+            android:text="@string/no_internet_connection"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize_fragment_internet_title"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/internet_connection_image"
+            tools:text="@string/no_internet_connection" />
+
+        <TextView
+            android:id="@+id/internet_connection_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin_top_fragment_internet_description"
+            android:fontFamily="@font/sf_pro_text"
+            android:gravity="center_horizontal"
+            android:text="@string/no_internet_connection_description"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize_fragment_internet_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/internet_connection_title"
+            tools:text="@string/no_internet_connection_description" />
+
+        <Button
+            android:id="@+id/internet_connection_button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_fragment_internet_bottom"
+            android:layout_marginTop="@dimen/margin_top_fragment_internet_try_again_button"
+            android:background="@drawable/round_corners_try_again_button"
+            android:contentDescription="@string/try_again"
+            android:fontFamily="@font/sf_pro_text"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/try_again"
+            android:textAllCaps="false"
+            android:textSize="@dimen/textsize_fragment_internet_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/internet_connection_description" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

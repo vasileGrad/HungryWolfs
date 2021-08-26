@@ -44,9 +44,17 @@ class DetailsFragment : Fragment() {
         setupObservers()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getMealWithDetails(args.idMeal)
+    }
+
     private fun setupObservers() {
         viewModel.navigationToHome.observe(viewLifecycleOwner) {
             findNavController().popBackStack()
+        }
+        viewModel.navigationToInternetFragment.observe(viewLifecycleOwner) {
+            findNavController().navigate(R.id.action_global_internetFragment)
         }
         viewModel.mealTags.observe(viewLifecycleOwner) { detailsAdapter.setMealTags(it) }
     }

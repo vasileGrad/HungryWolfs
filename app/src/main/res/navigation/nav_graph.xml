@@ -21,7 +21,7 @@
         android:id="@+id/favoritesFragment"
         android:name="com.example.hungrywolfs.fragments.FavoritesFragment"
         android:label="@string/favorites_title"
-        tools:layout="@layout/fragment_favorites" >
+        tools:layout="@layout/fragment_favorites">
         <action
             android:id="@+id/action_favoritesFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
@@ -53,4 +53,12 @@
             android:name="idMeal"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/internetFragment"
+        android:name="com.example.hungrywolfs.fragments.InternetFragment"
+        android:label="@string/no_internet_connection"
+        tools:layout="@layout/fragment_internet"></fragment>
+    <action
+        android:id="@+id/action_global_internetFragment"
+        app:destination="@id/internetFragment" />
 </navigation>

@@ -46,9 +46,17 @@ class HomeFragment : Fragment() {
         setupObservers()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getCategories()
+    }
+
     private fun setupObservers() {
         viewModel.navigationToSearch.observe(viewLifecycleOwner) {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
+        }
+        viewModel.navigationToInternetFragment.observe(viewLifecycleOwner) {
+            findNavController().navigate(R.id.action_global_internetFragment)
         }
         viewModel.foodCategories.observe(viewLifecycleOwner) { categoryAdapter.setCategories(it.categories) }
         viewModel.meals.observe(viewLifecycleOwner) {
