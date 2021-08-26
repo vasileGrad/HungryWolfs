@@ -2,9 +2,11 @@ package com.example.hungrywolfs.model
 
 import android.util.Log
 import androidx.lifecycle.*
+import com.example.hungrywolfs.Constants
 import com.example.hungrywolfs.SingleLiveEvent
 import com.example.hungrywolfs.network.MealApi
 import com.example.hungrywolfs.network.MealDetailsInfo
+import com.orhanobut.hawk.Hawk
 import kotlinx.coroutines.launch
 
 class DetailsViewModel : ViewModel() {
@@ -15,8 +17,16 @@ class DetailsViewModel : ViewModel() {
     private var _mealDetails = MutableLiveData<MealDetailsInfo>()
     val mealDetails: LiveData<MealDetailsInfo> = _mealDetails
 
+    private var _favoriteMeals = mutableListOf<MealDetailsInfo>()
+
     val mealTags: LiveData<List<String>> = _mealDetails.map {
         it.strTags?.split(",") ?: listOf()
+    }
+
+    val isFavorite = MutableLiveData(false)
+
+    init {
+        _favoriteMeals = Hawk.get(Constants.FAVORITES)
     }
 
     fun getMealWithDetails(idMeal: String) {
@@ -24,8 +34,9 @@ class DetailsViewModel : ViewModel() {
             try {
                 _mealDetails.value =
                     MealApi.retrofitService.getMealDetails(idMeal).meals.getOrNull(0)
+                isFavorite.value = _favoriteMeals.contains(_mealDetails.value)
             } catch (e: Exception) {
-                Log.d("OrderViewModel: ", "Error: $e")
+                Log.d("DetailsViewModel: ", "Error: $e")
             }
         }
     }
@@ -35,8 +46,15 @@ class DetailsViewModel : ViewModel() {
     }
 
     fun addToMealFavorites() {
-        _mealDetails.value = _mealDetails.value?.apply {
-            this.isFavorite = !this.isFavorite
+        _favoriteMeals =
+            Hawk.get<MutableList<MealDetailsInfo>>(Constants.FAVORITES) ?: mutableListOf()
+        if (!_favoriteMeals.contains(_mealDetails.value)) {
+            _mealDetails.value?.let {
+                _favoriteMeals.add(it)
+            }
+        } else {
+            _favoriteMeals.remove(_mealDetails.value)
         }
+        Hawk.put(Constants.FAVORITES, _favoriteMeals)
     }
 }

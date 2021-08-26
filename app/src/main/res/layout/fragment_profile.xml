@@ -71,7 +71,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/user_name"
+                android:id="@+id/favorite_meal_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_h_fragment_profile_user_name"
@@ -99,7 +99,7 @@
                 android:textColor="@color/darker_gray"
                 android:textSize="@dimen/textsize_fragment_profile_user_email"
                 app:layout_constraintStart_toEndOf="@id/user_image"
-                app:layout_constraintTop_toBottomOf="@id/user_name"
+                app:layout_constraintTop_toBottomOf="@id/favorite_meal_name"
                 tools:text="@string/user_email" />
 
             <View

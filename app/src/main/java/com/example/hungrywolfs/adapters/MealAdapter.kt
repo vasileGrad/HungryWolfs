@@ -18,7 +18,7 @@ class MealAdapter(private val clickListener: (idMealParam: String) -> Unit) :
 
     class MealViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val mealName: TextView = view.findViewById(R.id.meal_name)
-        val mealImage: ImageView = view.findViewById(R.id.meal_image)
+        val mealImage: ImageView = view.findViewById(R.id.favorite_meal_image)
         val mealConstraintLayout: ConstraintLayout =
             view.findViewById(R.id.constraint_layout_meal_item)
     }
