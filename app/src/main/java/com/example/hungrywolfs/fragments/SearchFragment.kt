@@ -60,6 +60,16 @@ class SearchFragment : Fragment() {
         hideKeyboard()
     }
 
+    private fun checkSearchResults() {
+        if (viewModel.searchedMeals.value?.size == 0) {
+            binding.itemNotFoundRelativeLayout.visibility = View.VISIBLE
+            binding.searchRelativeLayout.visibility = View.INVISIBLE
+        } else {
+            binding.itemNotFoundRelativeLayout.visibility = View.INVISIBLE
+            binding.searchRelativeLayout.visibility = View.VISIBLE
+        }
+    }
+
     private fun showKeyboard() {
         val inputMethodManager =
             context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -77,8 +87,8 @@ class SearchFragment : Fragment() {
         viewModel.navigationToHome.observe(viewLifecycleOwner) {
             findNavController().popBackStack()
         }
-        viewModel.navigationToInternetFragment.observe(viewLifecycleOwner) {
-            findNavController().navigate(R.id.action_global_internetFragment)
+        viewModel.searchedMeals.observe(viewLifecycleOwner) {
+            checkSearchResults()
         }
     }
 

@@ -21,6 +21,8 @@
     <dimen name="textsize_fragment_internet_title">24sp</dimen>
     <dimen name="textsize_fragment_internet_description">16sp</dimen>
     <dimen name="textsize_fragment_internet_button">16sp</dimen>
+    <dimen name="textsize_fragment_search_internet_title">24sp</dimen>
+    <dimen name="textsize_fragment_search_internet_description">16sp</dimen>
 
     <dimen name="height_category_item_text">3dp</dimen>
     <dimen name="margin_top_category_line">4dp</dimen>
@@ -139,4 +141,8 @@
     <dimen name="margin_top_fragment_internet_description">20dp</dimen>
     <dimen name="height_fragment_internet_bottom">60dp</dimen>
     <dimen name="margin_top_fragment_internet_try_again_button">40dp</dimen>
+    <dimen name="size_fragment_search_internet_connection_image">80dp</dimen>
+    <dimen name="margin_bottom_fragment_search_internet_connection_image">20dp</dimen>
+    <dimen name="margin_top_fragment_search_internet_title">32dp</dimen>
+    <dimen name="margin_top_fragment_search_internet_description">20dp</dimen>
 </resources>

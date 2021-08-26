@@ -26,6 +26,8 @@
     <string name="no_internet_connection">No internet Connection</string>
     <string name="no_internet_connection_description">Your internet connection is currently no available please check or try again.</string>
     <string name="try_again">Try again</string>
+    <string name="item_not_found">Item not found</string>
+    <string name="try_searching_the_item_description">Try searching the item with a different keyword.</string>
     <plurals name="meals">
         <item quantity="one">Found %d result</item>
         <item quantity="other">Found %d results</item>
