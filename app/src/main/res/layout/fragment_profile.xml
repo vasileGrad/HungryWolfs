@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_gray"
+        android:clipToPadding="false"
         android:paddingStart="@dimen/padding_fragment_profile_constraint_layout"
         android:paddingEnd="@dimen/padding_fragment_profile_constraint_layout">
 

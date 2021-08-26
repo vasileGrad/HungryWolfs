@@ -117,7 +117,7 @@
     <dimen name="margin_top_fragment_profile_constraint_layout_small">32dp</dimen>
     <dimen name="padding_fragment_profile_constraint_layout_small">16dp</dimen>
     <dimen name="padding_start_fragment_profile_constraint_layout_small">24dp</dimen>
-    <dimen name="elevation_fragment_profile_constraint_layout">4dp</dimen>
+    <dimen name="elevation_fragment_profile_constraint_layout">2dp</dimen>
     <dimen name="padding_fragment_favorites_constraint_layout">32dp</dimen>
     <dimen name="margin_top_fragment_favorites_title">48dp</dimen>
     <dimen name="size_fragment_favorites_ic_press_long">20dp</dimen>
@@ -126,7 +126,7 @@
     <dimen name="margin_start_fragment_favorites_press_long_text">12dp</dimen>
     <dimen name="margin_top_fragment_favorites_recycler">20dp</dimen>
     <dimen name="margin_bottom_fragment_favorites_recycler">228dp</dimen>
-    <dimen name="elevation_favorite_item_view">4dp</dimen>
+    <dimen name="elevation_favorite_item_view">2dp</dimen>
     <dimen name="padding_v_favorite_item_view_constraint">20dp</dimen>
     <dimen name="radius_favorite_item_view_constraint">40dp</dimen>
     <dimen name="size_favorite_item_view_circle_image">72dp</dimen>
