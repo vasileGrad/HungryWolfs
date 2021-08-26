@@ -16,9 +16,6 @@ class HomeViewModel : ViewModel() {
     private val _navigationToSearch = SingleLiveEvent<Any>()
     val navigationToSearch = _navigationToSearch
 
-    private val _navigationToInternetFragment = SingleLiveEvent<Any>()
-    val navigationToInternetFragment = _navigationToInternetFragment
-
     init {
         getCategories()
     }
@@ -34,7 +31,6 @@ class HomeViewModel : ViewModel() {
                 }
                 Log.d("HomeViewModel: ", "Categories retrieved with success")
             } catch (e: Exception) {
-                checkInternetConnection()
                 Log.d("HomeViewModel: ", "Error: $e")
             }
         }
@@ -46,24 +42,12 @@ class HomeViewModel : ViewModel() {
                 _meals.value = MealApi.retrofitService.getMeals(category.strCategory)
                 Log.d("HomeViewModel: ", "Meals retrieved with success")
             } catch (e: Exception) {
-                checkInternetConnection()
                 Log.d("HomeViewModel: ", "Error: $e")
             }
         }
     }
 
-    private fun checkInternetConnection() {
-        if (!InternetConnection.DoesNetworkHaveInternet.execute()) {
-            Log.d("HomeViewModel:", "No Internet connection!: ")
-            goToInternetFragment()
-        }
-    }
-
     fun goToSearchFragment() {
         _navigationToSearch.call()
-    }
-
-    private fun goToInternetFragment() {
-        _navigationToInternetFragment.call()
     }
 }
