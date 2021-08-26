@@ -49,11 +49,13 @@
             app:layout_constraintStart_toEndOf="@id/icon_back"
             app:layout_constraintTop_toTopOf="@id/icon_back" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/search_relative_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_top_fragment_search_layout"
             android:background="@drawable/rounded_corner_card_view"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/search_meals">
@@ -93,6 +95,64 @@
                 app:spanCount="2"
                 tools:itemCount="16"
                 tools:listitem="@layout/grid_view_item" />
-        </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item_not_found_relative_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_fragment_search_layout"
+            android:background="@color/white_gray"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/search_meals"
+            app:layout_constraintWidth_percent="0.7">
+
+            <ImageView
+                android:id="@+id/internet_connection_image"
+                android:layout_width="@dimen/size_fragment_search_internet_connection_image"
+                android:layout_height="@dimen/size_fragment_search_internet_connection_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/margin_bottom_fragment_search_internet_connection_image"
+                android:src="@drawable/ic_item_not_found"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_item_not_found" />
+
+            <TextView
+                android:id="@+id/item_not_found_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top_fragment_search_internet_title"
+                android:fontFamily="@font/sf_pro_text"
+                android:gravity="center_horizontal"
+                android:text="@string/item_not_found"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_fragment_search_internet_title"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/internet_connection_image"
+                tools:text="@string/item_not_found" />
+
+            <TextView
+                android:id="@+id/item_not_found_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/margin_top_fragment_search_internet_description"
+                android:fontFamily="@font/sf_pro_text"
+                android:gravity="center_horizontal"
+                android:text="@string/try_searching_the_item_description"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_fragment_search_internet_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_not_found_title"
+                tools:text="@string/try_searching_the_item_description" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
