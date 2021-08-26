@@ -70,6 +70,9 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_fragment_search_results"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/found_results_text" />
 
             <androidx.recyclerview.widget.RecyclerView
