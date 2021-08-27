@@ -55,9 +55,6 @@ class HomeFragment : Fragment() {
         viewModel.navigationToSearch.observe(viewLifecycleOwner) {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
         }
-        viewModel.navigationToInternetFragment.observe(viewLifecycleOwner) {
-            findNavController().navigate(R.id.action_global_internetFragment)
-        }
         viewModel.foodCategories.observe(viewLifecycleOwner) { categoryAdapter.setCategories(it.categories) }
         viewModel.meals.observe(viewLifecycleOwner) {
             mealAdapter.setMeals(it.meals)
@@ -66,6 +63,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun navigateToDetails(idMeal: String) {
-        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailsFragment(idMeal))
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailsFragment(
+            idMeal))
     }
 }
