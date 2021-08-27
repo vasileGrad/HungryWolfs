@@ -216,5 +216,48 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_fragment_profile_constraint_layout_small"
+            android:background="@drawable/round_corners_user_profile"
+            android:backgroundTint="@color/white"
+            android:clipToPadding="false"
+            android:elevation="@dimen/elevation_fragment_profile_constraint_layout"
+            android:paddingVertical="@dimen/padding_fragment_profile_constraint_layout_small"
+            android:paddingStart="@dimen/padding_start_fragment_profile_constraint_layout_small"
+            android:paddingEnd="@dimen/padding_fragment_profile_constraint_layout_small"
+            app:cardCornerRadius="@dimen/card_corner_radius_card_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/terms_and_conditions_constraint_layout">
+
+            <TextView
+                android:id="@+id/settings_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_text"
+                android:text="@string/settings"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize_fragment_profile_terms_text"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/settings" />
+
+            <ImageButton
+                android:id="@+id/settings_icon_back_right"
+                android:layout_width="@dimen/width_fragment_search_image_button"
+                android:layout_height="@dimen/height_fragment_search_image_button"
+                android:background="@color/white"
+                android:onClick="@{() -> viewModel.goToSettingsFragment()}"
+                android:src="@drawable/ic_back_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

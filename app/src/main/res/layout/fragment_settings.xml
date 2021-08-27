@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="fragments.SettingsFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.hungrywolfs.model.SettingsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_gray"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/padding_fragment_profile_constraint_layout"
+        android:paddingEnd="@dimen/padding_fragment_profile_constraint_layout">
+
+        <ImageButton
+            android:id="@+id/icon_back"
+            android:layout_width="@dimen/width_fragment_search_image_button"
+            android:layout_height="@dimen/height_fragment_search_image_button"
+            android:layout_marginTop="@dimen/margin_top_fragment_image_button"
+            android:background="@color/white_gray"
+            android:paddingEnd="@dimen/padding_end_fragment_profile_ic_back"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/settings_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_fragment_profile_title"
+            android:fontFamily="@font/sf_pro_text"
+            android:text="@string/settings"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize_fragment_profile_title"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon_back"
+            tools:text="@string/settings" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_fragment_profile_constraint_layout_small"
+            android:background="@drawable/round_corners_user_profile"
+            android:backgroundTint="@color/white"
+            android:clipToPadding="false"
+            android:elevation="@dimen/elevation_fragment_profile_constraint_layout"
+            android:paddingVertical="@dimen/padding_fragment_profile_constraint_layout_small"
+            android:paddingStart="@dimen/padding_start_fragment_profile_constraint_layout_small"
+            android:paddingEnd="@dimen/padding_fragment_profile_constraint_layout_small"
+            app:cardCornerRadius="@dimen/card_corner_radius_card_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/settings_title">
+
+            <TextView
+                android:id="@+id/font_size_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_pro_text"
+                android:text="@string/font_size"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/font_size" />
+
+            <ImageButton
+                android:id="@+id/icon_subtract"
+                android:layout_width="@dimen/width_fragment_search_image_button"
+                android:layout_height="@dimen/height_fragment_search_image_button"
+                android:layout_marginEnd="12dp"
+                android:background="@color/white_gray"
+                android:src="@drawable/ic_add"
+                android:onClick="@{() -> viewModel.addToFontSize()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/icon_add"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/icon_add"
+                android:layout_width="@dimen/width_fragment_search_image_button"
+                android:layout_height="@dimen/height_fragment_search_image_button"
+                android:background="@color/white_gray"
+                android:src="@drawable/ic_subtract"
+                android:onClick="@{() -> viewModel.subtractFromFontSize()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

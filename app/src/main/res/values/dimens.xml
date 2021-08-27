@@ -98,7 +98,7 @@
     <dimen name="padding_fragment_profile_constraint_layout">32dp</dimen>
     <dimen name="padding_end_fragment_profile_ic_back">32dp</dimen>
     <dimen name="margin_top_fragment_profile_title">32dp</dimen>
-    <dimen name="margin_top_fragment_profile_user_constraint_layout">36dp</dimen>
+    <dimen name="margin_top_fragment_profile_user_constraint_layout">32dp</dimen>
     <dimen name="padding_h_fragment_profile_user_constraint_layout">16dp</dimen>
     <dimen name="padding_v_fragment_profile_user_constraint_layout">20dp</dimen>
     <dimen name="width_fragment_profile_user_image">80dp</dimen>
@@ -114,7 +114,7 @@
     <dimen name="margin_end_fragment_profile_line">24dp</dimen>
     <dimen name="margin_start_fragment_profile_user_phone">16dp</dimen>
     <dimen name="margin_top_fragment_profile_user_phone">4dp</dimen>
-    <dimen name="margin_top_fragment_profile_constraint_layout_small">32dp</dimen>
+    <dimen name="margin_top_fragment_profile_constraint_layout_small">24dp</dimen>
     <dimen name="padding_fragment_profile_constraint_layout_small">16dp</dimen>
     <dimen name="padding_start_fragment_profile_constraint_layout_small">24dp</dimen>
     <dimen name="elevation_fragment_profile_constraint_layout">2dp</dimen>

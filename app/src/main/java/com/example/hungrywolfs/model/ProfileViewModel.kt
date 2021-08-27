@@ -20,6 +20,9 @@ class ProfileViewModel : ViewModel() {
     private val _navigationToFavorites = SingleLiveEvent<Any>()
     val navigationToFavorites = _navigationToFavorites
 
+    private val _navigationToSettings = SingleLiveEvent<Any>()
+    val navigationToSettings = _navigationToSettings
+
     fun getUserDetails() {
         viewModelScope.launch {
             try {
@@ -36,5 +39,9 @@ class ProfileViewModel : ViewModel() {
 
     fun goToFavoritesFragment() {
         _navigationToFavorites.call()
+    }
+
+    fun goToSettingsFragment() {
+        _navigationToSettings.call()
     }
 }

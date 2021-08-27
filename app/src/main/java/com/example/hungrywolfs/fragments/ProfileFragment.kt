@@ -47,6 +47,9 @@ class ProfileFragment : Fragment() {
         viewModel.navigationToFavorites.observe(viewLifecycleOwner) {
             findNavController().navigate(R.id.action_profileFragment_to_favoritesFragment)
         }
+        viewModel.navigationToSettings.observe(viewLifecycleOwner) {
+            findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
+        }
     }
 
     companion object {
