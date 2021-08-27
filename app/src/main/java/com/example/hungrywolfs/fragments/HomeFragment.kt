@@ -46,6 +46,11 @@ class HomeFragment : Fragment() {
         setupObservers()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getCategories()
+    }
+
     private fun setupObservers() {
         viewModel.navigationToSearch.observe(viewLifecycleOwner) {
             findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
@@ -58,6 +63,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun navigateToDetails(idMeal: String) {
-        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailsFragment(idMeal))
+        findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDetailsFragment(
+            idMeal))
     }
 }

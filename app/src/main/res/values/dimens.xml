@@ -18,6 +18,9 @@
     <dimen name="textsize_fragment_favorites_press_long_text">12sp</dimen>
     <dimen name="textsize_favorite_item_view_text">20sp</dimen>
     <dimen name="textsize_fragment_profile_terms_text">20sp</dimen>
+    <dimen name="textsize_fragment_internet_title">24sp</dimen>
+    <dimen name="textsize_fragment_internet_description">16sp</dimen>
+    <dimen name="textsize_fragment_internet_button">16sp</dimen>
 
     <dimen name="height_category_item_text">3dp</dimen>
     <dimen name="margin_top_category_line">4dp</dimen>
@@ -128,4 +131,12 @@
     <dimen name="margin_h_favorite_item_view_text">16dp</dimen>
     <dimen name="max_width_favorite_item_view_text">164dp</dimen>
     <dimen name="size_divider_favorites">16dp</dimen>
+    <dimen name="radius_round_corners_try_again_button">44dp</dimen>
+    <dimen name="padding_fragment_internet_constraint_layout">32dp</dimen>
+    <dimen name="size_fragment_internet_image_view">120dp</dimen>
+    <dimen name="margin_bottom_fragment_internet_image_view">140dp</dimen>
+    <dimen name="margin_top_fragment_internet_title">32dp</dimen>
+    <dimen name="margin_top_fragment_internet_description">20dp</dimen>
+    <dimen name="height_fragment_internet_bottom">60dp</dimen>
+    <dimen name="margin_top_fragment_internet_try_again_button">40dp</dimen>
 </resources>

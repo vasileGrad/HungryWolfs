@@ -41,10 +41,6 @@ class DetailsViewModel : ViewModel() {
         }
     }
 
-    fun goToHomeFragment() {
-        navigationToHome.call()
-    }
-
     fun addToMealFavorites() {
         _favoriteMeals =
             Hawk.get<MutableList<MealDetailsInfo>>(Constants.FAVORITES) ?: mutableListOf()
@@ -56,5 +52,9 @@ class DetailsViewModel : ViewModel() {
             _favoriteMeals.remove(_mealDetails.value)
         }
         Hawk.put(Constants.FAVORITES, _favoriteMeals)
+    }
+
+    fun goToHomeFragment() {
+        _navigationToHome.call()
     }
 }

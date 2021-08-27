@@ -23,6 +23,9 @@
     <string name="terms_and_conditions">Terms and conditions</string>
     <string name="press_long_text">press long on an item to delete</string>
     <string name="favorite_item_view_text">Veggie tomato mix</string>
+    <string name="no_internet_connection">No internet Connection</string>
+    <string name="no_internet_connection_description">Your internet connection is currently no available please check or try again.</string>
+    <string name="try_again">Try again</string>
     <plurals name="meals">
         <item quantity="one">Found %d result</item>
         <item quantity="other">Found %d results</item>

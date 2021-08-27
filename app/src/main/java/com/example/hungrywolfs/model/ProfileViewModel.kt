@@ -1,12 +1,10 @@
 package com.example.hungrywolfs.model
 
 import android.util.Log
-import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.hungrywolfs.R
 import com.example.hungrywolfs.SingleLiveEvent
 import com.example.hungrywolfs.network.User
 import kotlinx.coroutines.launch
@@ -27,7 +25,7 @@ class ProfileViewModel : ViewModel() {
             try {
                 _user.value = User("Grad Vasile", "vasile.grad02@gmail.com", "+40 123 456 789")
             } catch (e: Exception) {
-                Log.d("OrderViewModel: ", "Error: $e")
+                Log.d("ProfileViewModel: ", "Error: $e")
             }
         }
     }

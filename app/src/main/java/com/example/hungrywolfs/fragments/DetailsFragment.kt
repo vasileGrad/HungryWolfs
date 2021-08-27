@@ -44,6 +44,11 @@ class DetailsFragment : Fragment() {
         setupObservers()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getMealWithDetails(args.idMeal)
+    }
+
     private fun setupObservers() {
         viewModel.navigationToHome.observe(viewLifecycleOwner) {
             findNavController().popBackStack()

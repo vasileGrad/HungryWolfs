@@ -20,18 +20,18 @@ class HomeViewModel : ViewModel() {
         getCategories()
     }
 
-    private fun getCategories() {
+    fun getCategories() {
         viewModelScope.launch {
             try {
-                MealApi.retrofitService.getMealCategories()?.let {
+                MealApi.retrofitService.getMealCategories().let {
                     _foodCategories.value = it
                     it.categories.getOrNull(0)?.let {
                         getSelectedMeals(it)
                     }
                 }
-                Log.d("OrderViewModel: ", "Categories retrieved with success")
+                Log.d("HomeViewModel: ", "Categories retrieved with success")
             } catch (e: Exception) {
-                Log.d("OrderViewModel: ", "Error: $e")
+                Log.d("HomeViewModel: ", "Error: $e")
             }
         }
     }
@@ -40,9 +40,9 @@ class HomeViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 _meals.value = MealApi.retrofitService.getMeals(category.strCategory)
-                Log.d("OrderViewModel: ", "Meals retrieved with success")
+                Log.d("HomeViewModel: ", "Meals retrieved with success")
             } catch (e: Exception) {
-                Log.d("OrderViewModel: ", "Error: $e")
+                Log.d("HomeViewModel: ", "Error: $e")
             }
         }
     }
