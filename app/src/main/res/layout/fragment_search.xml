@@ -86,6 +86,7 @@
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:paddingStart="@dimen/padding_start_fragment_search_recycler"
+                android:paddingTop="@dimen/padding_top_fragment_search_recycler"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

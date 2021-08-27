@@ -15,10 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_gray"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:paddingStart="@dimen/padding_fragment_favorites_constraint_layout"
-        android:paddingEnd="@dimen/padding_fragment_favorites_constraint_layout">
+        android:clipToPadding="false">
 
         <TextView
             android:id="@+id/favorites_text"
@@ -68,7 +65,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_top_fragment_favorites_recycler"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:orientation="vertical"
+            android:paddingStart="@dimen/padding_fragment_favorites_constraint_layout"
+            android:paddingTop="8dp"
+            android:paddingEnd="@dimen/padding_fragment_favorites_constraint_layout"
             android:paddingBottom="@dimen/margin_bottom_fragment_favorites_recycler"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"

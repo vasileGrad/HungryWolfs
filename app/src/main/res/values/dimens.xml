@@ -124,7 +124,7 @@
     <dimen name="margin_start_fragment_favorites_ic_press_long">56dp</dimen>
     <dimen name="margin_top_fragment_favorites_ic_press_long">44dp</dimen>
     <dimen name="margin_start_fragment_favorites_press_long_text">12dp</dimen>
-    <dimen name="margin_top_fragment_favorites_recycler">20dp</dimen>
+    <dimen name="margin_top_fragment_favorites_recycler">12dp</dimen>
     <dimen name="margin_bottom_fragment_favorites_recycler">228dp</dimen>
     <dimen name="elevation_favorite_item_view">2dp</dimen>
     <dimen name="padding_v_favorite_item_view_constraint">20dp</dimen>
@@ -145,4 +145,5 @@
     <dimen name="margin_bottom_fragment_search_internet_connection_image">20dp</dimen>
     <dimen name="margin_top_fragment_search_internet_title">32dp</dimen>
     <dimen name="margin_top_fragment_search_internet_description">20dp</dimen>
+    <dimen name="padding_top_fragment_search_recycler">8dp</dimen>
 </resources>
