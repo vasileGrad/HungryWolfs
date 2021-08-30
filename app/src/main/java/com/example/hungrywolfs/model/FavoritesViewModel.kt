@@ -26,6 +26,6 @@ class FavoritesViewModel : ViewModel() {
     }
 
     fun getFavorites() {
-        _favoriteMeals.value = Hawk.get<MutableList<MealDetailsInfo>>(Constants.FAVORITES)
+        _favoriteMeals.value = Hawk.get<MutableList<MealDetailsInfo>>(Constants.FAVORITES) ?: mutableListOf()
     }
 }

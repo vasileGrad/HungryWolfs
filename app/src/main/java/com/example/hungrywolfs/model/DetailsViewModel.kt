@@ -26,7 +26,7 @@ class DetailsViewModel : ViewModel() {
     val isFavorite = MutableLiveData(false)
 
     init {
-        _favoriteMeals = Hawk.get(Constants.FAVORITES)
+        _favoriteMeals = Hawk.get(Constants.FAVORITES) ?: mutableListOf()
     }
 
     fun getMealWithDetails(idMeal: String) {
